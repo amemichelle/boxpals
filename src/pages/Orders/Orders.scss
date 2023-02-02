@@ -1,0 +1,9 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+
+.orders {
+  background-color: #fff5ea;
+  width: 100vw;
+  height: 100vh;
+  @include flex-row;
+}

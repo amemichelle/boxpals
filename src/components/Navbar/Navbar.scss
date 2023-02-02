@@ -3,7 +3,7 @@
 
 .navbar {
   height: 100vh;
-  width: 6rem;
+  width: 4rem;
   background-color: white;
   border-right: solid 2px #c9ac8a;
   @include flex-column;
@@ -18,6 +18,6 @@
   }
 
   &__icon-img {
-    height: 3rem;
+    height: 2rem;
   }
 }
