@@ -1,0 +1,23 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+
+.navbar {
+  height: 100vh;
+  width: 6rem;
+  background-color: white;
+  border-right: solid 2px #c9ac8a;
+  @include flex-column;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  &__icon-img {
+    height: 3rem;
+  }
+}
