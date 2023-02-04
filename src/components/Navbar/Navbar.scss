@@ -28,6 +28,7 @@
     &:hover .navbar__icon-label {
       visibility: visible;
       opacity: 1;
+      transition: 0.3s;
     }
   }
 
@@ -41,6 +42,7 @@
     visibility: hidden;
     opacity: 0;
     width: max-content;
+    border-radius: 4px;
   }
 
   &__icon-img {

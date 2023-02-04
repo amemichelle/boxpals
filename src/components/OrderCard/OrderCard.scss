@@ -15,6 +15,7 @@
   &__info-block {
     @include flex-row;
     gap: 0.2rem;
+    width: max-content;
   }
 
   &__info-img {
