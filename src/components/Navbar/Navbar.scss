@@ -1,20 +1,46 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
 
 .navbar {
   height: 100vh;
   width: 4rem;
-  background-color: white;
-  border-right: solid 2px #c9ac8a;
+  background-color: $white;
+  border-right: solid 2px $border-tan;
   @include flex-column;
   align-items: center;
   justify-content: center;
 
   &__container {
     @include flex-column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    margin-left: 6.5rem;
+  }
+
+  &__icon {
+    @include flex-row;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    gap: 0.5rem;
+
+    &:hover .navbar__icon-label {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__icon-label {
+    background-color: $forest-green;
+    color: $white;
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
   }
 
   &__icon-img {

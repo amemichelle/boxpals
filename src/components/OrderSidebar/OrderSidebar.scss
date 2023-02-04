@@ -1,19 +1,21 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
 
 .sidebar {
   height: 100vh;
-  width: 22rem;
-  background-color: white;
-  border-right: solid 2px #c9ac8a;
+  background-color: $white;
+  border-right: solid 2px $border-tan;
   box-shadow: 18px 0px 4px 0px rgba(218, 205, 189, 0.25);
+  max-width: 28rem;
   @include flex-column;
+  padding: 2rem;
 
   &__heading {
     font-family: "Unbounded", cursive;
     font-weight: 900;
     font-size: 1.2rem;
-    color: #004921;
+    color: $forest-green;
   }
 
   &__top-bar {
@@ -21,6 +23,14 @@
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    padding: 1rem 2rem;
+    padding-bottom: 0.5rem;
   }
+
+  &__arrow {
+    height: 2rem;
+  }
+}
+
+.open-width {
+  width: 28rem;
 }

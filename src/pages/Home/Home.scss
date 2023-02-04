@@ -1,8 +1,9 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
 
 .home {
-  background-color: #fff5ea;
+  background-color: $light-tan;
   width: 100vw;
   height: 100vh;
 }
