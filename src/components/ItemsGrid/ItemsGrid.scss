@@ -1,7 +1,8 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
 @import "../../styles/partials/_Variables";
-.actions {
+
+.grid {
   border: 2px solid $med-tan;
   border-radius: 1rem;
   background-color: $white;
@@ -16,17 +17,16 @@
     padding-left: 1.5rem;
   }
 
-  &__item {
-    @include flex-row;
-    padding: 0 1.5rem;
-    justify-content: space-between;
-
-    &:nth-child(even) {
-      background-color: $light-tan;
-    }
+  &__photo {
+    max-width: 32%;
+    padding-bottom: 0.8rem;
   }
 
-  &__text {
-    font-size: 0.9rem;
+  &__photos {
+    @include flex-row;
+    justify-content: space-between;
+    max-width: 100%;
+    padding: 1.5rem;
+    flex-wrap: wrap;
   }
 }

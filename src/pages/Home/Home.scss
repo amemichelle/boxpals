@@ -8,8 +8,9 @@
   height: 100vh;
   @include flex-row;
 
-  &__header {
-    padding: 0rem 6rem;
+  &__main {
+    @include flex-column;
+    padding-left: 8rem;
   }
 
   &__header {
@@ -17,5 +18,10 @@
     font-size: 3rem;
     font-weight: 600;
     color: #8a7662;
+  }
+
+  &__body {
+    @include flex-column;
+    gap: 2.5rem;
   }
 }

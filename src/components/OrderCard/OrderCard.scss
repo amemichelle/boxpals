@@ -6,6 +6,7 @@
   border: 2px solid $med-tan;
   border-radius: 1rem;
   padding: 1rem;
+  width: 23rem;
 
   &__container {
     @include flex-row;

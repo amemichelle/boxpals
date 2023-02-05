@@ -3,7 +3,8 @@
 @import "../../styles/partials/_Variables";
 
 .navbar {
-  height: 100vh;
+  position: fixed;
+  height: 100%;
   width: 4rem;
   background-color: $white;
   border-right: solid 2px $border-tan;
