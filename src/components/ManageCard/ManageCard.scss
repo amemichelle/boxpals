@@ -1,0 +1,32 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+.card {
+  border: 2px solid $med-tan;
+  border-radius: 1rem;
+  background-color: $white;
+  height: max-content;
+  width: 100%;
+  height: 10rem;
+
+  &__flag {
+    background-color: $forest-green;
+    width: 50px;
+    height: 0px;
+    position: relative;
+    top: -18px;
+    right: -200px;
+    @include flex-row;
+    justify-content: center;
+    align-content: center;
+
+    &-img {
+      width: 1.5rem;
+    }
+  }
+}
+
+#card-base:hover > #flag {
+  height: 50px;
+  transition: ease-in-out 0.3s;
+}

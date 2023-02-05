@@ -2,6 +2,7 @@ import "./Home.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import Actions from "../../components/Actions/Actions";
 import ItemsGrid from "../../components/ItemsGrid/ItemsGrid";
+import ManageCard from "../../components/ManageCard/ManageCard";
 
 function Home() {
   return (
@@ -16,6 +17,10 @@ function Home() {
             <Actions></Actions>
             <ItemsGrid></ItemsGrid>
           </div>
+        </div>
+        <div className="home__right-bar">
+          <h3>Group Orders You Manage</h3>
+          <ManageCard></ManageCard>
         </div>
       </section>
     </>
