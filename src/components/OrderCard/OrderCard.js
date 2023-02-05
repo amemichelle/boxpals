@@ -4,10 +4,10 @@ import circledivider from "../../assets/circledivider.svg";
 import group from "../../assets/group.svg";
 import statuscomplete from "../../assets/statuscomplete.svg";
 
-function OrderCard() {
+function OrderCard(props) {
   return (
     <>
-      <div className="card">
+      <div className="card" style={{ opacity: props.isopen ? "1" : "0" }}>
         <p className="card__number">ORDER #97658</p>
         <h3 className="card__name">osumekeys</h3>
 

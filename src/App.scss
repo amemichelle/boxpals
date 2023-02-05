@@ -1,3 +1,11 @@
+@import "./styles/partials/_FontStyles";
+@import "./styles/partials/_Mixins";
+@import "./styles/partials/_Variables";
+
 * {
   box-sizing: border-box;
+}
+
+body {
+  background-color: $light-tan;
 }

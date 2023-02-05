@@ -11,7 +11,14 @@ function OrderSidebar() {
     <>
       <section className={isOpen ? "sidebar open-width" : "sidebar"}>
         <div className="sidebar__top-bar">
-          {isOpen && <h2 className="sidebar__heading">Current orders</h2>}
+          {isOpen && (
+            <h2
+              className="sidebar__heading"
+              style={{ opacity: isOpen ? "1" : "0" }}
+            >
+              Current orders
+            </h2>
+          )}
           <div
             className="sidebar__back"
             onClick={() => {
@@ -21,7 +28,7 @@ function OrderSidebar() {
             <img src={isOpen ? backarrow : forwardarrow} />
           </div>
         </div>
-        {isOpen && <OrderCard></OrderCard>}
+        {isOpen && <OrderCard isopen={isOpen}></OrderCard>}
       </section>
     </>
   );

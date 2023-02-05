@@ -8,8 +8,10 @@
   border-right: solid 2px $border-tan;
   box-shadow: 18px 0px 4px 0px rgba(218, 205, 189, 0.25);
   max-width: 28rem;
+  width: 90px;
   @include flex-column;
   padding: 2rem;
+  transition: width ease-in 0.2s;
 
   &__heading {
     font-family: "Unbounded", cursive;
