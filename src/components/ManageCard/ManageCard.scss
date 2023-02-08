@@ -8,11 +8,15 @@
   height: max-content;
   width: 100%;
   height: 10rem;
+  position: relative;
 
   &__flag {
-    background-color: $forest-green;
+    background-color: teal;
     width: 50px;
     height: 50px;
+    position: absolute;
+    top: 0;
+    right: 2rem;
 
     @include flex-row;
     justify-content: center;
@@ -24,7 +28,14 @@
   }
 }
 
-// #card-base:hover > #flag {
-//   height: 50px;
-//   transition: ease-in-out 0.3s;
-// }
+.zigzag {
+  display: inline;
+  height: 15px;
+  width: 15px;
+  background: linear-gradient(45deg, red 25%, transparent 25%),
+    linear-gradient(-45deg, red 25%, transparent 25%);
+
+  &-container {
+    @include flex-row;
+  }
+}
