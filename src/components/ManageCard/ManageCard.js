@@ -19,10 +19,15 @@ function ManageCard() {
             animate={{ height: isVisible ? "50px" : 0 }}
             className="card__flag"
           >
-            <img src={shoppingBag} className="card__flag-img" />
-            <motion.div className="zigzag-container">
-              <div className="zigzag"></div>
-              <div className="zigzag"></div>
+            <motion.div className="card__flag-content">
+              <img src={shoppingBag} className="card__flag-img" />
+              <motion.div className="zigzag-container">
+                <div className="zigzag"></div>
+                <div className="zigzag"></div>
+                <div className="zigzag"></div>
+                <div className="zigzag"></div>
+                <div className="zigzag"></div>
+              </motion.div>
             </motion.div>
           </motion.div>
         </AnimatePresence>
