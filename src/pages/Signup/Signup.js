@@ -3,7 +3,9 @@ import snake from "../../assets/snake.svg";
 import circle from "../../assets/circle.svg";
 import tape from "../../assets/tape.svg";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Signup() {
+  const navigate = useNavigate();
   function handleSubmit(event) {
     event.preventDefault();
 
@@ -24,6 +26,7 @@ function Signup() {
 
       .then((response) => {
         console.log(response);
+        navigate("/");
       });
   }
 

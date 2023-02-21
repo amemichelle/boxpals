@@ -9,6 +9,7 @@
   box-shadow: 18px 0px 4px 0px rgba(218, 205, 189, 0.25);
   max-width: 28rem;
   width: 90px;
+  margin-left: 4rem;
   @include flex-column;
   padding: 2rem;
   transition: width ease-in 0.2s;

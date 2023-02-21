@@ -5,8 +5,10 @@
 .card {
   border: 2px solid $med-tan;
   border-radius: 1rem;
-  padding: 1rem;
+  padding: 2rem 1rem;
   width: 23rem;
+  @include flex-column;
+  justify-content: space-between;
 
   &__container {
     @include flex-row;

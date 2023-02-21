@@ -30,7 +30,7 @@ function OrderSidebar() {
             </AnimatePresence>
           )}
           <div
-            className="sidebar__back"
+            className="sidebar__arrow"
             onClick={() => {
               setIsOpen(!isOpen);
             }}

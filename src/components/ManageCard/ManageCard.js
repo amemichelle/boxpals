@@ -31,7 +31,11 @@ function ManageCard() {
             </motion.div>
           </motion.div>
         </AnimatePresence>
-        <h3 className="card__heading">osumekeys</h3>
+        <div className="card__content">
+          <p className="card__order">ORDER: #123151</p>
+          <h3 className="card__heading">osumekeys</h3>
+          <p className="card__status">All items added</p>
+        </div>
       </div>
     </>
   );
