@@ -3,8 +3,6 @@ import close from "../../assets/close.svg";
 import { hide } from "react-functional-modal";
 
 function Modal(props) {
-  console.log(props.itemData);
-
   return (
     <div className="modal">
       <div className="modal__img-container">

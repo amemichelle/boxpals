@@ -11,12 +11,31 @@ function Home() {
   let username = sessionStorage.getItem("username");
   let userID = sessionStorage.getItem("id");
   let [orderData, setOrderData] = useState([]);
+  let [hostedOrders, setHostedOrders] = useState([]);
+  let [participants, setParticipants] = useState([]);
+
   function getData() {
     axios.get("http://localhost:8080/purchased").then((response) => {
       let filteredList = response.data.filter((item) => {
         return item.user_id === parseInt(userID);
       });
       setOrderData(filteredList);
+    });
+
+    axios.get("http://localhost:8080/orders").then((response) => {
+      let hostedOrders = response.data.filter((order) => {
+        return order.host_id === parseInt(userID);
+      });
+
+      setHostedOrders(hostedOrders);
+    });
+
+    axios.get("http://localhost:8080/participants").then((response) => {
+      let people = response.data.filter((order) => {
+        return order.user_id === parseInt(userID);
+      });
+
+      setParticipants(people);
     });
   }
 
@@ -33,13 +52,13 @@ function Home() {
             <p className="home__heading">Hi {username}!</p>
           </div>
           <div className="home__body">
-            <Actions></Actions>
+            <Actions participants={participants}></Actions>
             <ItemsGrid orderData={orderData}></ItemsGrid>
           </div>
         </div>
         <div className="home__right-bar">
           <h3>Group Orders You Manage</h3>
-          <ManageCard></ManageCard>
+          <ManageCard orderData={hostedOrders}></ManageCard>
         </div>
       </section>
     </>

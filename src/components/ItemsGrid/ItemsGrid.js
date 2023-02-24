@@ -26,6 +26,8 @@ function ItemsGrid(props) {
                 src={item.img_src}
                 onClick={() => {
                   show(<Modal itemData={item} />, {
+                    fading: true,
+                    clickOutsideToClose: true,
                     style: { background: "rgba(0, 0, 0, 0.8)" },
                   });
                 }}
