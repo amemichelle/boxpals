@@ -25,7 +25,8 @@ function Signup() {
       })
 
       .then((response) => {
-        console.log(response);
+        sessionStorage.setItem("username", response.data[0].username);
+        sessionStorage.setItem("id", response.data[0].id);
         navigate("/");
       });
   }

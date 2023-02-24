@@ -1,0 +1,78 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.modal {
+  width: 40rem;
+  height: max-content;
+  background-color: $white;
+  position: relative;
+
+  &__img {
+    width: 100%;
+    position: absolute;
+    top: -7rem;
+  }
+
+  &__img-container {
+    width: 100%;
+    height: 18rem;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__content {
+    padding: 2.5rem;
+  }
+
+  &__exit {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    width: 2.5rem;
+  }
+
+  &__price {
+    background-color: $border-tan;
+    width: max-content;
+    padding: 2rem;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+
+    &-text {
+      font-family: "Unbounded";
+      color: white;
+      font-weight: 600;
+      font-size: 1.2rem;
+      @include removeMarginBlock;
+    }
+  }
+
+  &__name {
+    font-family: "Unbounded";
+    font-size: 1.6rem;
+    font-weight: 600;
+    @include removeMarginBlock;
+    padding-top: 1rem;
+  }
+
+  &__body {
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+    @include removeMarginBlock;
+    padding: 0.5rem 0;
+  }
+
+  &__order {
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+    @include removeMarginBlock;
+    padding-top: 3rem;
+  }
+}
+
+.bold {
+  font-weight: 700;
+}

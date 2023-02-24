@@ -19,14 +19,14 @@
 
   &__photo {
     max-width: 32%;
-    padding-bottom: 0.8rem;
   }
 
   &__photos {
     @include flex-row;
-    justify-content: space-between;
+    gap: auto;
     max-width: 100%;
     padding: 1.5rem;
     flex-wrap: wrap;
+    gap: 0.7rem;
   }
 }

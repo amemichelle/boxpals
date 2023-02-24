@@ -3,8 +3,14 @@ import "./ItemsGrid.scss";
 import Kep1er from "../../assets/kep1er.jpg";
 import TripleS from "../../assets/triples.jpg";
 import NewJeans from "../../assets/newjeans.jpg";
+import { show } from "react-functional-modal";
+import Modal from "../Modal/Modal";
 
-function ItemsGrid() {
+// function openModal(item) {
+//   show(<Modal itemData={item}></Modal>);
+// }
+
+function ItemsGrid(props) {
   return (
     <>
       <div className="grid">
@@ -13,12 +19,19 @@ function ItemsGrid() {
           <h3 className="actions__heading">Items Purchased</h3>
         </div>
         <div className="grid__photos">
-          <img className="grid__photo" src={Kep1er} />
-          <img className="grid__photo" src={TripleS} />
-          <img className="grid__photo" src={NewJeans} />
-          <img className="grid__photo" src={Kep1er} />
-          <img className="grid__photo" src={TripleS} />
-          <img className="grid__photo" src={NewJeans} />
+          {props.orderData.map((item) => {
+            return (
+              <img
+                className="grid__photo"
+                src={item.img_src}
+                onClick={() => {
+                  show(<Modal itemData={item} />, {
+                    style: { background: "rgba(0, 0, 0, 0.8)" },
+                  });
+                }}
+              />
+            );
+          })}
         </div>
       </div>
     </>
