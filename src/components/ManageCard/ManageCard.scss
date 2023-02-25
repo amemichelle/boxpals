@@ -10,6 +10,10 @@
   height: 10rem;
   position: relative;
   overflow: hidden;
+  @include flex-column;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
 
   &__order {
     font-family: "Uncut Sans";

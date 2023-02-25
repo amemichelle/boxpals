@@ -4,37 +4,47 @@ import circledivider from "../../assets/circledivider.svg";
 import group from "../../assets/group.svg";
 import statuscomplete from "../../assets/statuscomplete.svg";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function OrderCard(props) {
+  const navigate = useNavigate();
+
+  function handleClick() {
+    props.onClick();
+    navigate("/order/" + props.orderData.id, { state: props.allOrders });
+  }
+
   return (
     <div style={{ overflow: "hidden" }}>
       <AnimatePresence>
         {props.isopen && (
           <motion.div
-            className="card"
+            className={props.active ? "cards selected" : "cards"}
             initial={{ x: "-100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "-100%", opacity: 0 }}
             transition={{ duration: 0.3 }}
+            onClick={handleClick}
           >
-            <p className="card__number">ORDER #97658</p>
-            <h3 className="card__name">osumekeys</h3>
+            <p className="cards__number">ORDER #{props.orderData.id}</p>
+            <h3 className="cards__name">{props.orderData.name}</h3>
 
-            <div className="card__container">
-              <div className="card__info-block">
-                <img className="card__info-img" src={statuscomplete} />
-                <p className="card__info">Completed</p>
+            <div className="cards__container">
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={statuscomplete} />
+                <p className="cards__info">{props.orderData.status}</p>
               </div>
-              <img className="card__info-img" src={circledivider} />
-              <div className="card__info-block">
-                <img className="card__info-img" src={cart} />
-                <p className="card__info">2 Items</p>
+              <img className="cards__info-img" src={circledivider} />
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={cart} />
+                <p className="cards__info">2 Items</p>
               </div>
-              <img className="card__info-img" src={circledivider} />
+              <img className="cards__info-img" src={circledivider} />
 
-              <div className="card__info-block">
-                <img className="card__info-img" src={group} />
-                <p className="card__info">3 Participants</p>
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={group} />
+                <p className="cards__info">3 Participants</p>
               </div>
             </div>
           </motion.div>

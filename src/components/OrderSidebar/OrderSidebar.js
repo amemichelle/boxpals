@@ -1,12 +1,25 @@
 import "./OrderSidebar.scss";
 import backarrow from "../../assets/backarrow.svg";
 import forwardarrow from "../../assets/forwardarrow.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import OrderCard from "../../components/OrderCard/OrderCard";
 import { motion, AnimatePresence } from "framer-motion";
+import { useParams } from "react-router-dom";
 
-function OrderSidebar() {
+function OrderSidebar(props) {
   const [isOpen, setIsOpen] = useState(true);
+  const [isSelected, setisSelected] = useState(-1);
+  const orderNumber = useParams();
+
+  // function determineSelected() {
+  //   if (Number(orderNumber.orderID) === props.orderData.id) {
+  //     props.setisSelected(true);
+  //   }
+  // }
+
+  // useEffect(() => {
+  //   determineSelected();
+  // }, [orderNumber]);
 
   return (
     <>
@@ -38,7 +51,20 @@ function OrderSidebar() {
             <img src={isOpen ? backarrow : forwardarrow} />
           </div>
         </div>
-        {isOpen && <OrderCard isopen={isOpen}></OrderCard>}
+        {isOpen &&
+          props.userOrders.map((order) => {
+            return (
+              <OrderCard
+                isopen={isOpen}
+                orderData={order}
+                allOrders={props.userOrders}
+                active={isSelected === order.id}
+                onClick={() => {
+                  setisSelected(order.id);
+                }}
+              ></OrderCard>
+            );
+          })}
       </section>
     </>
   );

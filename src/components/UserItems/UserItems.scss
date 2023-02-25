@@ -1,0 +1,49 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.participant {
+  background-color: $white;
+  margin: 2rem 5rem;
+  border-radius: 1rem;
+  border: 1.5px solid $border-tan;
+
+  &__top-bar {
+    @include flex-row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $border-tan;
+  }
+
+  &__item {
+    @include flex-row;
+    padding: 1.5rem 0rem;
+    align-items: center;
+
+    &:nth-child(even) {
+      background-color: $light-tan;
+    }
+
+    &-name {
+      font-family: "Unbounded";
+      font-size: 1.3rem;
+      max-width: 90%;
+    }
+
+    &-img {
+      width: 100%;
+
+      &-box {
+        height: 8rem;
+        overflow: hidden;
+        width: 40%;
+        margin-right: 2rem;
+        border: 0.5px solid $border-tan;
+      }
+    }
+
+    &-content {
+      width: 60%;
+    }
+  }
+}

@@ -2,13 +2,14 @@
 @import "../../styles/partials/_Mixins";
 @import "../../styles/partials/_Variables";
 
-.card {
+.cards {
   border: 2px solid $med-tan;
   border-radius: 1rem;
   padding: 2rem 1rem;
   width: 23rem;
   @include flex-column;
   justify-content: space-between;
+  margin-bottom: 1rem;
 
   &__container {
     @include flex-row;
@@ -47,4 +48,8 @@
     color: $forest-green;
     padding-bottom: 2rem;
   }
+}
+
+.selected {
+  background-color: $med-tan;
 }
