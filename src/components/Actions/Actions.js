@@ -22,7 +22,7 @@ function Actions(props) {
 
   useEffect(() => {
     findOrders();
-  }, [userOrders]);
+  }, [props.participants]);
 
   return (
     <div className="actions">
@@ -33,7 +33,7 @@ function Actions(props) {
 
       {userOrders.map((order) => {
         return (
-          <div className="actions__item">
+          <div className="actions__item" key={order.id}>
             <p className="actions__text">ORDER #{order.id}</p>
             <p className="actions__text">{order.name}</p>
             <p className="actions__text">{order.status}</p>

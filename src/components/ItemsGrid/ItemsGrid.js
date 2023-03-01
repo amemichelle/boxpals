@@ -1,14 +1,8 @@
 import addedCart from "../../assets/addedcart.svg";
 import "./ItemsGrid.scss";
-import Kep1er from "../../assets/kep1er.jpg";
-import TripleS from "../../assets/triples.jpg";
-import NewJeans from "../../assets/newjeans.jpg";
+
 import { show } from "react-functional-modal";
 import Modal from "../Modal/Modal";
-
-// function openModal(item) {
-//   show(<Modal itemData={item}></Modal>);
-// }
 
 function ItemsGrid(props) {
   return (
@@ -22,6 +16,7 @@ function ItemsGrid(props) {
           {props.orderData.map((item) => {
             return (
               <img
+                key={item.id}
                 className="grid__photo"
                 src={item.img_src}
                 onClick={() => {

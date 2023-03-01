@@ -1,10 +1,10 @@
 import "./UserItems.scss";
 import { useEffect, useState } from "react";
-import tripleS from "../../assets/triples.jpg";
 
 function UserItems(props) {
   const [items, setItems] = useState([]);
-  const [owner, setOwner] = useState([]);
+  const [owner, setOwner] = useState({});
+  const [subtotal, setSubtotal] = useState();
   function findItems() {
     let userItems = props.itemData.filter((item) => {
       return item.user_id === props.userID;
@@ -14,38 +14,35 @@ function UserItems(props) {
   }
 
   function findUsername() {
-    let people = [];
-
     props.participants.forEach((user) => {
       let foundUser = user.find((user) => user.id === props.userID);
       if (foundUser != undefined) {
-        people.push(foundUser);
+        setOwner(foundUser);
       }
     });
+  }
 
-    setOwner(people);
-    console.log(people);
+  function getSubtotal() {
+    let sum = 0;
+    items.map((item) => {
+      sum += Number(item.price);
+    });
 
-    //     props.participants.forEach((user) => {
-    //       let foundUser = props.participants.find(
-    //         (userb) => userb.id === props.userID
-    //       );
-    //       console.log(foundUser);
-    //       setOwner(foundUser);
-    //     });
+    setSubtotal(sum);
   }
 
   useEffect(() => {
     findUsername();
     findItems();
-  }, [setOwner]);
+    getSubtotal();
+  }, [props.participants]);
 
   return (
     <>
       <div className="participant">
         <div className="participant__top-bar">
           <p className="participant__name">{owner && owner.username}</p>
-          <p className="participant__subtotal">Subtotal:$68.72</p>
+          <p className="participant__subtotal">Subtotal:${subtotal}</p>
         </div>
 
         {items.map((item) => {

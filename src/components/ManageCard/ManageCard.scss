@@ -15,6 +15,10 @@
   padding-left: 2rem;
   padding-top: 0.5rem;
 
+  &__link {
+    text-decoration: none;
+  }
+
   &__order {
     font-family: "Uncut Sans";
     font-size: 0.8rem;

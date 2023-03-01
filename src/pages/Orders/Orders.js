@@ -21,8 +21,6 @@ function Orders(props) {
     });
   }
 
-  console.log(userOrders);
-
   useEffect(() => {
     findOrders();
   }, []);

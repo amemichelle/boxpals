@@ -1,8 +1,25 @@
 import "./Modal.scss";
 import close from "../../assets/close.svg";
 import { hide } from "react-functional-modal";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function Modal(props) {
+  const [orderName, setOrderName] = useState();
+
+  function findOrderName() {
+    axios.get("http://localhost:8080/orders").then((response) => {
+      let orderName = response.data.filter((order) => {
+        return props.itemData.order_id === order.id;
+      });
+      setOrderName(orderName[0]);
+    });
+  }
+
+  useEffect(() => {
+    findOrderName();
+  }, []);
+
   return (
     <div className="modal">
       <div className="modal__img-container">
@@ -26,7 +43,8 @@ function Modal(props) {
           {props.itemData.specifications}
         </p>
         <p className="modal__order">
-          The order it's in goes here but it's in a dfferent place o.o
+          {" "}
+          <span className="bold">order:</span> {orderName && orderName.name}
         </p>
       </div>
     </div>

@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   let username = sessionStorage.getItem("username");
-  let userID = sessionStorage.getItem("id");
+  let [userID, setuserID] = useState(sessionStorage.getItem("id"));
   let [orderData, setOrderData] = useState([]);
   let [hostedOrders, setHostedOrders] = useState([]);
   let [participants, setParticipants] = useState([]);
@@ -44,12 +44,12 @@ function App() {
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [userID]);
 
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<Login />}></Route>
+        <Route path="/login" element={<Login setuserID={setuserID} />}></Route>
         <Route path="/signup" element={<Signup />}></Route>
         <Route
           path="/"
@@ -70,7 +70,10 @@ function App() {
 
         <Route path="/order/:orderID" element={<Order></Order>}></Route>
 
-        <Route path="/additem" element={<AddItem />}></Route>
+        <Route
+          path="/additem"
+          element={<AddItem userID={userID} participants={participants} />}
+        ></Route>
       </Routes>
     </BrowserRouter>
   );

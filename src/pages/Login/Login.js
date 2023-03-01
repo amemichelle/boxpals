@@ -5,7 +5,7 @@ import tape from "../../assets/tape.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Login(props) {
   const navigate = useNavigate();
 
   function submitForm(event) {
@@ -27,6 +27,8 @@ function Login() {
       .then((response) => {
         sessionStorage.setItem("username", response.data[0].username);
         sessionStorage.setItem("id", response.data[0].id);
+
+        props.setuserID(response.data[0].id);
         navigate("/");
       });
   }

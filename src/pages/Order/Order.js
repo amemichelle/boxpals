@@ -61,15 +61,15 @@ function Order() {
         peopleOrdering.push(peoples);
       });
 
-      setHost(hostID);
-      setParticipants(peopleOrdering);
+      setHost(hostID[0]);
+     setParticipants(peopleOrdering);
     });
   }
 
   useEffect(() => {
     getInfo();
     getItems();
-  }, [orderID]);
+  }, [orderID, orderInfo, participantNum]);
 
   return (
     <>
@@ -97,7 +97,7 @@ function Order() {
             <div className="info__container">
               <div className="info__pair">
                 <p className="info__label">Host</p>
-                <p className="info__details">{host[0] && host[0].username}</p>
+                <p className="info__details">{host && host.username}</p>
               </div>
 
               <div className="info__pair">
@@ -117,6 +117,7 @@ function Order() {
           {participantNum.map((person) => {
             return (
               <UserItems
+                key={person}
                 userID={person}
                 itemData={itemData}
                 participants={participants}

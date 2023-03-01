@@ -4,11 +4,35 @@ import circledivider from "../../assets/circledivider.svg";
 import group from "../../assets/group.svg";
 import statuscomplete from "../../assets/statuscomplete.svg";
 import { motion, AnimatePresence } from "framer-motion";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
 function OrderCard(props) {
   const navigate = useNavigate();
+
+  let [participantNum, setParticipantNum] = useState();
+  let [itemNum, setItemNum] = useState();
+
+  function getData() {
+    axios.get("http://localhost:8080/participants").then((response) => {
+      let people = response.data.filter((order) => {
+        return order.order_id === props.orderData.id;
+      });
+      setParticipantNum(people.length);
+    });
+
+    axios.get("http://localhost:8080/purchased").then((response) => {
+      let items = response.data.filter((order) => {
+        return order.order_id === props.orderData.id;
+      });
+      setItemNum(items.length);
+    });
+  }
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   function handleClick() {
     props.onClick();
@@ -38,13 +62,13 @@ function OrderCard(props) {
               <img className="cards__info-img" src={circledivider} />
               <div className="cards__info-block">
                 <img className="cards__info-img" src={cart} />
-                <p className="cards__info">2 Items</p>
+                <p className="cards__info">{itemNum} Items</p>
               </div>
               <img className="cards__info-img" src={circledivider} />
 
               <div className="cards__info-block">
                 <img className="cards__info-img" src={group} />
-                <p className="cards__info">3 Participants</p>
+                <p className="cards__info">{participantNum} Participants</p>
               </div>
             </div>
           </motion.div>
