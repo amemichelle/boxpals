@@ -5,6 +5,7 @@ import Signup from "./pages/Signup/Signup";
 import Home from "./pages/Home/Home";
 import Orders from "./pages/Orders/Orders";
 import AddItem from "./pages/AddItem/AddItem";
+import AddOrder from "./pages/AddOrder/AddOrder";
 import Order from "./pages/Order/Order";
 
 import axios from "axios";
@@ -74,6 +75,8 @@ function App() {
           path="/additem"
           element={<AddItem userID={userID} participants={participants} />}
         ></Route>
+
+        <Route path="/addorder" element={<AddOrder></AddOrder>}></Route>
       </Routes>
     </BrowserRouter>
   );

@@ -56,8 +56,6 @@ function AddItem(props) {
         Accept: "application/json",
       },
     });
-
-    console.log(newItem);
   }
 
   useEffect(() => {
