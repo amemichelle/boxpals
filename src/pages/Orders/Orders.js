@@ -6,13 +6,25 @@ import noOrders from "../../assets/noorders.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-function Orders(props) {
+function Orders() {
+  let [participants, setParticipants] = useState([]);
+  let [userID, setuserID] = useState(sessionStorage.getItem("id"));
   const [userOrders, setUserOrders] = useState([]);
+
+  function findParticipants() {
+    axios.get("http://localhost:8080/participants").then((response) => {
+      let people = response.data.filter((order) => {
+        return order.user_id === parseInt(userID);
+      });
+
+      setParticipants(people);
+    });
+  }
 
   function findOrders() {
     axios.get("http://localhost:8080/orders").then((response) => {
       let participating = response.data.filter((order) => {
-        return props.participants.find((participant) => {
+        return participants.find((participant) => {
           return participant.order_id === order.id;
         });
       });
@@ -22,8 +34,12 @@ function Orders(props) {
   }
 
   useEffect(() => {
+    findParticipants();
+  }, [userID]);
+
+  useEffect(() => {
     findOrders();
-  }, []);
+  }, [participants]);
 
   return (
     <>

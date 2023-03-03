@@ -3,15 +3,19 @@
 @import "../../styles/partials/_Variables";
 
 .navbar {
-  position: fixed;
-  height: 100%;
-  width: 4rem;
-  background-color: $white;
-  border-right: solid 2px $border-tan;
-  @include flex-column;
-  align-items: center;
-  justify-content: center;
-  z-index: 0;
+  display: none;
+
+  @include breakpoint-min-size($tablet) {
+    position: fixed;
+    height: 100%;
+    width: 4rem;
+    background-color: $white;
+    border-right: solid 2px $border-tan;
+    @include flex-column;
+    align-items: center;
+    justify-content: center;
+    z-index: 0;
+  }
 
   &__container {
     @include flex-column;

@@ -35,4 +35,21 @@
     color: $black;
     gap: 0.5rem;
   }
+
+  &__input {
+    padding: 0.5rem;
+  }
+
+  &__button {
+    background-color: $forest-green;
+    font-family: "Uncut Sans";
+    font-weight: 600;
+    font-size: 1rem;
+    color: $white;
+    padding: 0.6rem;
+    width: 12rem;
+    outline: none;
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
 }

@@ -56,10 +56,23 @@ function AddOrder() {
             <form className="order-page__form" onSubmit={handleSubmit}>
               <label className="order-page__label">
                 Site ordering from
-                <input type="text" name="order_name"></input>
+                <input
+                  type="text"
+                  name="order_name"
+                  className="order-page__input"
+                ></input>
               </label>
 
-              <button>Create order</button>
+              <label className="order-page__label">
+                Invite participants
+                <input
+                  type="text"
+                  name="order_participant"
+                  className="order-page__input"
+                ></input>
+              </label>
+
+              <button className="order-page__button">Create order</button>
             </form>
           </div>
         </div>

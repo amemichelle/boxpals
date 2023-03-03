@@ -11,16 +11,6 @@ function OrderSidebar(props) {
   const [isSelected, setisSelected] = useState(-1);
   const orderNumber = useParams();
 
-  // function determineSelected() {
-  //   if (Number(orderNumber.orderID) === props.orderData.id) {
-  //     props.setisSelected(true);
-  //   }
-  // }
-
-  // useEffect(() => {
-  //   determineSelected();
-  // }, [orderNumber]);
-
   return (
     <>
       <section className={isOpen ? "sidebar open-width" : "sidebar"}>

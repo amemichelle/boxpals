@@ -84,10 +84,11 @@
   &__container {
     @include flex-row;
     justify-content: flex-start;
-    gap: 8rem;
+    gap: 5em;
     height: max-content;
     padding: 1rem 2rem;
     padding-bottom: 2rem;
+    width: 100%;
   }
 
   &__pair {
@@ -107,6 +108,6 @@
     font-family: "Uncut Sans";
     font-weight: 500;
     padding-bottom: 0.5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
 }

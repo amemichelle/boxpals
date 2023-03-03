@@ -3,8 +3,9 @@ import Navbar from "../../components/Navbar/Navbar";
 import { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
-function AddItem(props) {
+function AddItem() {
   const [url, seturl] = useState("");
   const [name, setName] = useState("");
   const [price, setPrice] = useState();
@@ -12,28 +13,42 @@ function AddItem(props) {
   const [options, setOptions] = useState();
   const [itemlink, setItemLink] = useState("");
   const [selected, setSelected] = useState();
+  const navigate = useNavigate();
 
-  let user_id = sessionStorage.getItem("id");
+  let [participants, setParticipants] = useState([]);
+
+  let [userID, setuserID] = useState(sessionStorage.getItem("id"));
 
   function getOptions() {
-    axios.get("http://localhost:8080/orders").then((response) => {
-      let participating = response.data.filter((order) => {
-        return props.participants.find((participant) => {
-          return participant.order_id === order.id;
+    axios
+      .get("http://localhost:8080/participants")
+      .then((response) => {
+        let people = response.data.filter((order) => {
+          return order.user_id === parseInt(userID);
+        });
+
+        setParticipants(people);
+      })
+      .then(() => {
+        axios.get("http://localhost:8080/orders").then((response) => {
+          let participating = response.data.filter((order) => {
+            return participants.find((participant) => {
+              return participant.order_id === order.id;
+            });
+          });
+
+          let optionObjects = [];
+          participating.map((order) => {
+            let option = {
+              label: order.name,
+              value: order.id,
+            };
+            optionObjects.push(option);
+          });
+
+          setOptions(optionObjects);
         });
       });
-
-      let optionObjects = [];
-      participating.map((order) => {
-        let option = {
-          label: order.name,
-          value: order.id,
-        };
-        optionObjects.push(option);
-      });
-
-      setOptions(optionObjects);
-    });
   }
 
   function handleSubmit(e) {
@@ -46,7 +61,7 @@ function AddItem(props) {
       price: price,
       specifications: specs,
       order_id: selected.value,
-      user_id: user_id,
+      user_id: userID,
     };
 
     axios.post("http://localhost:8080/purchased", newItem, {
@@ -56,6 +71,8 @@ function AddItem(props) {
         Accept: "application/json",
       },
     });
+
+    navigate("/order/" + selected.value);
   }
 
   useEffect(() => {

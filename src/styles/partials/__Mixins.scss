@@ -16,8 +16,8 @@
   margin-block-start: 0;
   margin-block-end: 0;
 }
-// MEDIA QUERIES
 
+// MEDIA QUERIES
 @mixin breakpoint-min-size($breakpoint) {
   @media (min-width: $breakpoint) {
     @content;
