@@ -4,8 +4,6 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 
 function Actions(props) {
-  // find orders where logged in user is a participant
-
   const [userOrders, setUserOrders] = useState([]);
 
   function findOrders() {

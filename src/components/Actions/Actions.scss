@@ -8,6 +8,10 @@
   height: max-content;
   width: 100%;
 
+  @include breakpoint-min-size($desktop) {
+    width: 100%;
+  }
+
   &__header {
     @include flex-row;
     width: 100%;

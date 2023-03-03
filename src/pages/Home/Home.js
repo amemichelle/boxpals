@@ -1,5 +1,6 @@
 import "./Home.scss";
 import Navbar from "../../components/Navbar/Navbar";
+import MobileNav from "../../components/MobileNav/MobileNav";
 import Actions from "../../components/Actions/Actions";
 import ItemsGrid from "../../components/ItemsGrid/ItemsGrid";
 import ManageCard from "../../components/ManageCard/ManageCard";
@@ -46,6 +47,7 @@ function Home() {
 
   return (
     <>
+      <MobileNav></MobileNav>
       <section className="home">
         <Navbar></Navbar>
         <div className="home__main">
