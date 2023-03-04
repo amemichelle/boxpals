@@ -1,0 +1,56 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.cards {
+  border: 2px solid $med-tan;
+  border-radius: 1rem;
+  padding: 2rem 1rem;
+  width: 23rem;
+  @include flex-column;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  z-index: 1;
+
+  &__container {
+    @include flex-row;
+    width: 100%;
+    justify-content: space-between;
+  }
+  &__info-block {
+    @include flex-row;
+    gap: 0.2rem;
+    width: max-content;
+  }
+
+  &__info-img {
+    width: 1.2rem;
+  }
+
+  &__number {
+    font-family: "Uncut Sans";
+    font-size: 0.8rem;
+    color: $off-black;
+    @include removeMarginBlock;
+  }
+
+  &__info {
+    font-family: "Uncut Sans";
+    font-size: 0.9rem;
+    color: $off-black;
+    @include removeMarginBlock;
+  }
+
+  &__name {
+    @include removeMarginBlock;
+    font-family: "Unbounded";
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: $forest-green;
+    padding-bottom: 2rem;
+  }
+}
+
+.selected {
+  background-color: $med-tan;
+}

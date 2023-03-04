@@ -1,0 +1,100 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.page {
+  @include flex-row;
+
+  &__content {
+    @include flex-column;
+  }
+
+  &__img {
+    width: 100%;
+  }
+}
+
+.container {
+  border: 2px solid #dacdbd;
+  border-radius: 1rem;
+  background-color: white;
+  height: max-content;
+  width: 40rem;
+  margin-left: 8rem;
+  padding: 2rem;
+}
+
+.header {
+  font-family: "Unbounded";
+  font-size: 3rem;
+  font-weight: 600;
+  color: #8a7662;
+  margin-left: 8rem;
+}
+
+.img-preview {
+  width: 100%;
+  background-color: $forest-green;
+  margin-bottom: 2rem;
+}
+
+.item-form {
+  @include flex-column;
+  gap: 1rem;
+
+  &__label {
+    @include flex-column;
+    font-family: "Unbounded";
+    font-size: 1rem;
+    color: $black;
+    gap: 0.5rem;
+  }
+
+  &__input {
+    padding: 0.5rem;
+  }
+
+  &__button {
+    background-color: $forest-green;
+    font-family: "Uncut Sans";
+    font-weight: 600;
+    font-size: 1rem;
+    color: $white;
+    padding: 0.6rem;
+    width: 12rem;
+    outline: none;
+    align-self: flex-end;
+    margin-top: 1rem;
+  }
+}
+
+.preview {
+  border: 2px solid #dacdbd;
+  border-radius: 0.5rem;
+  background-color: white;
+  height: max-content;
+  width: 30%;
+  margin-left: 2rem;
+  margin-top: 7.8rem;
+
+  &__content {
+    @include flex-row;
+    align-items: center;
+  }
+
+  &__name {
+    font-family: "Unbounded";
+    font-size: 2rem;
+    padding-left: 2rem;
+  }
+
+  &__desc {
+    padding-left: 2rem;
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+  }
+
+  &__accent {
+    padding: 0rem 0.5rem;
+  }
+}

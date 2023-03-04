@@ -1,0 +1,41 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.sidebar {
+  height: 100vh;
+  background-color: $white;
+  border-right: solid 2px $border-tan;
+  box-shadow: 18px 0px 4px 0px rgba(218, 205, 189, 0.25);
+  max-width: 28rem;
+  width: 90px;
+  margin-left: 4rem;
+  @include flex-column;
+  padding: 2rem;
+  transition: width ease-in 0.2s;
+
+  &__heading {
+    font-family: "Unbounded", cursive;
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: $forest-green;
+    width: 12rem;
+  }
+
+  &__top-bar {
+    @include flex-row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 0.5rem;
+    overflow: hidden;
+  }
+
+  &__arrow {
+    height: 2rem;
+  }
+}
+
+.open-width {
+  width: 28rem;
+}

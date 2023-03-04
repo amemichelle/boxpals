@@ -1,0 +1,89 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+.card {
+  border: 2px solid $med-tan;
+  border-radius: 1rem;
+  background-color: $white;
+  height: max-content;
+  width: 100%;
+  height: 10rem;
+  position: relative;
+  overflow: hidden;
+  @include flex-column;
+  justify-content: center;
+  padding-left: 2rem;
+  padding-top: 0.5rem;
+  margin-bottom: 1rem;
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__order {
+    font-family: "Uncut Sans";
+    font-size: 0.8rem;
+    @include removeMarginBlock;
+  }
+
+  &__heading {
+    @include removeMarginBlock;
+    font-family: "Unbounded";
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: $forest-green;
+  }
+
+  &__content {
+    @include flex-column;
+    justify-content: space-between;
+  }
+
+  &__flag {
+    background-color: $forest-green;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    right: 2rem;
+
+    @include flex-row;
+    justify-content: center;
+    align-content: center;
+
+    &-img {
+      width: 1.5rem;
+    }
+
+    &-content {
+      width: 100%;
+      @include flex-column;
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+
+  &__status {
+    background-color: $forest-green;
+    padding: 0.5rem 1rem;
+    width: max-content;
+    color: $white;
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+    font-weight: 600;
+  }
+}
+
+.zigzag {
+  height: 12.5px;
+  width: 10px;
+  background: linear-gradient(-30deg, white 25%, $forest-green 25%),
+    linear-gradient(30deg, red 25%, blue 25%);
+
+  &-container {
+    @include flex-row;
+    overflow: clip;
+    overflow-clip-margin: content-box;
+    width: 100%;
+  }
+}

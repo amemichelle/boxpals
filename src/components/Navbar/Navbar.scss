@@ -1,23 +1,57 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
 
 .navbar {
-  height: 100vh;
-  width: 6rem;
-  background-color: white;
-  border-right: solid 2px #c9ac8a;
-  @include flex-column;
-  align-items: center;
-  justify-content: center;
+  display: none;
 
-  &__container {
+  @include breakpoint-min-size($tablet) {
+    position: fixed;
+    height: 100%;
+    width: 4rem;
+    background-color: $white;
+    border-right: solid 2px $border-tan;
     @include flex-column;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
+    z-index: 0;
+  }
+
+  &__container {
+    @include flex-column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+    margin-left: 6.5rem;
+  }
+
+  &__icon {
+    @include flex-row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    &:hover .navbar__icon-label {
+      visibility: visible;
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+
+  &__icon-label {
+    background-color: $forest-green;
+    color: $white;
+    font-family: "Uncut Sans";
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+    z-index: 20;
+    visibility: hidden;
+    opacity: 0;
+    width: max-content;
+    border-radius: 4px;
   }
 
   &__icon-img {
-    height: 3rem;
+    height: 2rem;
   }
 }

@@ -1,8 +1,78 @@
 @import "../../styles/partials/_FontStyles";
 @import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
 
 .home {
-  background-color: #fff5ea;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  padding-top: 2.5rem;
+  @include breakpoint-min-size($tablet) {
+    background-color: $light-tan;
+    width: 100%;
+    height: 100vh;
+    @include flex-row;
+    gap: 1rem;
+    padding-top: 0;
+  }
+
+  &__main {
+    @include flex-column;
+    padding: 0rem 1rem;
+    width: 100%;
+    height: 100%;
+
+    @include breakpoint-min-size($tablet) {
+      padding-left: 8rem;
+    }
+    @include breakpoint-min-size($desktop) {
+      width: 70%;
+    }
+  }
+
+  &__header {
+    font-family: "Unbounded";
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #8a7662;
+    width: 100%;
+
+    @include breakpoint-min-size($tablet) {
+      font-size: 2rem;
+    }
+
+    @include breakpoint-min-size($desktop) {
+      font-size: 3rem;
+    }
+  }
+
+  &__heading {
+    @include removeMarginBlock;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+
+    @include breakpoint-min-size($tablet) {
+      @include removeMarginBlock;
+      padding-top: 4rem;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__body {
+    @include flex-column;
+    padding-bottom: 2rem;
+    gap: 1rem;
+    @include breakpoint-min-size($tablet) {
+      gap: 2.5rem;
+      padding-bottom: 4rem;
+    }
+  }
+
+  &__right-bar {
+    display: none;
+
+    @include breakpoint-min-size($desktop) {
+      @include flex-column;
+      padding-top: 8.5rem;
+      width: 23%;
+    }
+  }
 }

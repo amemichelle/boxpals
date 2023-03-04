@@ -1,71 +1,76 @@
-import "./Login.scss";
+import "./Signup.scss";
 import snake from "../../assets/snake.svg";
 import circle from "../../assets/circle.svg";
 import tape from "../../assets/tape.svg";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
-function Login(props) {
+function Signup() {
   const navigate = useNavigate();
-
-  function submitForm(event) {
+  function handleSubmit(event) {
     event.preventDefault();
 
-    const currentUser = {
+    const newUser = {
       username: event.target.username.value,
+      email: event.target.email.value,
       password: event.target.password.value,
     };
 
     axios
-      .post("http://localhost:8080/login", currentUser, {
+      .post("http://localhost:8080/signup", newUser, {
         headers: {
           "Access-Control-Allow-Origin": "*",
           "Content-Type": "application/json",
           Accept: "application/json",
         },
       })
+
       .then((response) => {
         sessionStorage.setItem("username", response.data[0].username);
         sessionStorage.setItem("id", response.data[0].id);
-
-        props.setuserID(response.data[0].id);
         navigate("/");
       });
   }
 
   return (
     <>
-      <section className="login">
-        <div className="login__container">
-          <img src={tape} className="login__stickers-tape" />
+      <section className="signup">
+        <div className="signup__container">
+          <img src={tape} className="signup__stickers-tape" />
 
-          <h1 className="login__heading">LOG IN</h1>
-          <form className="login__form" onSubmit={submitForm}>
+          <h1 className="signup__heading">SIGN UP</h1>
+          <form className="signup__form" onSubmit={handleSubmit}>
+            <input
+              type="text"
+              placeholder="Enter email address"
+              className="signup__input"
+              name="email"
+            />
+
             <input
               type="text"
               placeholder="Enter username"
-              className="login__input"
+              className="signup__input"
               name="username"
             />
 
             <input
               type="text"
               placeholder="Enter password"
-              className="login__input"
+              className="signup__input"
               name="password"
             />
 
-            <button type="submit" className="login__submit">
-              Login
+            <button type="submit" className="signup__submit">
+              signup
             </button>
           </form>
         </div>
 
-        <img src={snake} className="login__stickers-snake" />
-        <img src={circle} className="login__stickers-circle" />
+        <img src={snake} className="signup__stickers-snake" />
+        <img src={circle} className="signup__stickers-circle" />
       </section>
     </>
   );
 }
 
-export default Login;
+export default Signup;
