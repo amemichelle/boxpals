@@ -3,7 +3,6 @@ import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Login from "./pages/Login/Login";
 import Signup from "./pages/Signup/Signup";
 import Home from "./pages/Home/Home";
-import Orders from "./pages/Orders/Orders";
 import AddItem from "./pages/AddItem/AddItem";
 import AddOrder from "./pages/AddOrder/AddOrder";
 import Order from "./pages/Order/Order";
@@ -21,7 +20,7 @@ function App() {
 
         <Route path="/" element={<Home />} />
 
-        <Route path="/orders" element={<Orders />}></Route>
+        <Route path="/orders" element={<Order />}></Route>
         <Route path="/order/:orderID" element={<Order></Order>}></Route>
 
         <Route path="/additem" element={<AddItem />}></Route>
