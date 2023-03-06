@@ -7,25 +7,17 @@ import axios from "axios";
 function InfoModal() {
   const [user, setUser] = useState({});
   let userID = sessionStorage.getItem("id");
-
+  console.log(userID);
   function findUser() {
-    axios.get("http://localhost:8080/users").then((response) => {
+    axios.get("http://localhost:8080/users/" + userID).then((response) => {
       console.log(response);
-      let user = response.data.filter((user) => {
-        return user.id === userID;
-      });
-
-      // localhost:8080/users/:userid
-
-      setUser(user);
+      setUser(response.data[0]);
     });
   }
 
   useEffect(() => {
     findUser();
   }, []);
-
-  console.log(user);
 
   return (
     <>

@@ -4,6 +4,7 @@ import home from "../../assets/home.svg";
 import orders from "../../assets/orders.svg";
 import additem from "../../assets/additem.svg";
 import basket from "../../assets/basket.svg";
+import menu from "../../assets/menu.svg";
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
@@ -19,7 +20,7 @@ function MobileNav() {
           document.body.classList.add("no-scroll");
         }}
       >
-        <p className="m-nav__title">NAV</p>
+        <img className="m-nav__menu-icon" src={menu} />
       </div>
 
       <div
@@ -58,7 +59,7 @@ function MobileNav() {
             <div className="m-nav__link-block">
               <img className="m-nav__link-img" src={additem} />
               Add Item
-            </div>{" "}
+            </div>
           </NavLink>
         </div>
       </div>

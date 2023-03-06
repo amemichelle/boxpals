@@ -8,17 +8,38 @@
   border-radius: 1rem;
   border: 1.5px solid $border-tan;
 
+  @include breakpoint-max-size($tablet) {
+    margin: 1.5rem;
+  }
+
+  &__name {
+    @include removeMarginBlock;
+  }
+  &__subtotal {
+    @include removeMarginBlock;
+  }
+
   &__top-bar {
     @include flex-row;
     justify-content: space-between;
-    padding: 1rem 2rem;
+    padding: 1.5rem;
     border-bottom: 1px solid $border-tan;
+
+    @include breakpoint-max-size($tablet) {
+      @include flex-column;
+      justify-content: flex-start;
+      gap: 1rem;
+    }
   }
 
   &__item {
     @include flex-row;
     padding: 1.5rem 0rem;
     align-items: center;
+
+    @include breakpoint-max-size($tablet) {
+      @include flex-column;
+    }
 
     &:nth-child(even) {
       background-color: $light-tan;
@@ -28,6 +49,11 @@
       font-family: "Unbounded";
       font-size: 1.3rem;
       max-width: 90%;
+
+      @include breakpoint-max-size($tablet) {
+        font-size: 1.1rem;
+        max-width: 100%;
+      }
     }
 
     &-img {
@@ -41,11 +67,19 @@
         width: 40%;
         margin-right: 2rem;
         border: 0.5px solid $border-tan;
+
+        @include breakpoint-max-size($tablet) {
+          width: 90%;
+          margin-right: 0rem;
+        }
       }
     }
 
     &-content {
       width: 60%;
+      @include breakpoint-max-size($tablet) {
+        width: 90%;
+      }
     }
   }
 }

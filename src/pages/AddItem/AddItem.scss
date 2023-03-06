@@ -4,9 +4,11 @@
 
 .page {
   @include flex-row;
+  width: 100%;
 
   &__content {
     @include flex-column;
+    width: 100%;
   }
 
   &__img {
@@ -22,6 +24,13 @@
   width: 40rem;
   margin-left: 8rem;
   padding: 2rem;
+
+  @include breakpoint-max-size($tablet) {
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 85%;
+  }
 }
 
 .header {
@@ -30,6 +39,10 @@
   font-weight: 600;
   color: #8a7662;
   margin-left: 8rem;
+  @include breakpoint-max-size($tablet) {
+    margin-left: 1.5rem;
+    font-size: 2rem;
+  }
 }
 
 .img-preview {
@@ -76,6 +89,10 @@
   width: 30%;
   margin-left: 2rem;
   margin-top: 7.8rem;
+  display: block;
+  @include breakpoint-max-size($tablet) {
+    display: none;
+  }
 
   &__content {
     @include flex-row;

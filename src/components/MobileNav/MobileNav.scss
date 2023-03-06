@@ -9,15 +9,14 @@
   position: fixed;
   @include flex-row;
   justify-content: center;
+  z-index: 1;
+
   @include breakpoint-min-size($tablet) {
     display: none;
   }
 
-  &__title {
-    font-family: "Uncut Sans";
-    font-size: 1rem;
-    color: $white;
-    font-weight: 600;
+  &__menu-icon {
+    width: 2rem;
   }
 
   &__open {

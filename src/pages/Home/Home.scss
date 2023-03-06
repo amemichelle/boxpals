@@ -3,15 +3,16 @@
 @import "../../styles/partials/_Variables";
 
 .home {
+  background-color: $light-tan;
   width: 100%;
+  height: 100vh;
+  @include flex-row;
+  gap: 1rem;
   padding-top: 2.5rem;
+
   @include breakpoint-min-size($tablet) {
-    background-color: $light-tan;
     width: 100%;
-    height: 100vh;
-    @include flex-row;
-    gap: 1rem;
-    padding-top: 0;
+    padding-top: 0rem;
   }
 
   &__main {

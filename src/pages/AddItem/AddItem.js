@@ -64,7 +64,7 @@ function AddItem() {
       user_id: userID,
     };
 
-    axios.post("http://localhost:8080/purchased", newItem, {
+    axios.post("http://localhost:8080/items", newItem, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
@@ -77,7 +77,7 @@ function AddItem() {
 
   useEffect(() => {
     getOptions();
-  }, []);
+  }, [userID]);
 
   return (
     <>

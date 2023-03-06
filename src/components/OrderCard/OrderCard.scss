@@ -12,10 +12,18 @@
   margin-bottom: 1rem;
   z-index: 1;
 
+  @include breakpoint-max-size($tablet) {
+    width: 100%;
+  }
+
   &__container {
     @include flex-row;
     width: 100%;
     justify-content: space-between;
+
+    @include breakpoint-max-size($tablet) {
+      @include flex-column;
+    }
   }
   &__info-block {
     @include flex-row;
@@ -53,4 +61,10 @@
 
 .selected {
   background-color: $med-tan;
+}
+
+.divider {
+  @include breakpoint-max-size($tablet) {
+    display: none;
+  }
 }

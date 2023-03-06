@@ -17,7 +17,7 @@ function Home() {
   let [participants, setParticipants] = useState([]);
 
   function getData() {
-    axios.get("http://localhost:8080/purchased").then((response) => {
+    axios.get("http://localhost:8080/items").then((response) => {
       let filteredList = response.data.filter((item) => {
         return item.user_id === parseInt(userID);
       });
