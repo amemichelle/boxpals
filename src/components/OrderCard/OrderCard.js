@@ -13,14 +13,14 @@ function OrderCard(props) {
 
   let [participantNum, setParticipantNum] = useState();
   let [itemNum, setItemNum] = useState();
+  let [userID, setuserID] = useState(sessionStorage.getItem("id"));
 
   function getData() {
-    axios.get("http://localhost:8080/participants").then((response) => {
-      let people = response.data.filter((order) => {
-        return order.order_id === props.orderData.id;
+    axios
+      .get("http://localhost:8080/participants/order/" + props.orderData.id)
+      .then((response) => {
+        setParticipantNum(response.data.length);
       });
-      setParticipantNum(people.length);
-    });
 
     axios.get("http://localhost:8080/items").then((response) => {
       let items = response.data.filter((order) => {

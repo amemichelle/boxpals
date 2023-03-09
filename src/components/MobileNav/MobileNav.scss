@@ -7,6 +7,7 @@
   height: 3.5rem;
   background-color: $forest-green;
   position: fixed;
+  top: 0;
   @include flex-row;
   justify-content: center;
   z-index: 1;
@@ -29,6 +30,7 @@
     justify-content: center;
     background-color: rgba($light-tan, 0.9);
     overflow: hidden;
+    // pointer-events: none;
     @include breakpoint-min-size($tablet) {
       display: none;
     }
@@ -53,9 +55,15 @@
     font-size: 2rem;
     color: $forest-green;
     padding-top: 0.6rem;
+    pointer-events: auto;
 
     &:hover {
       color: #977b5e;
+
+      img {
+        filter: invert(53%) sepia(5%) saturate(2467%) hue-rotate(350deg)
+          brightness(93%) contrast(94%);
+      }
     }
 
     &-img {

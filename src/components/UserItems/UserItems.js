@@ -13,6 +13,9 @@ function UserItems(props) {
     setItems(userItems);
   }
 
+  // console.log(props.participants);
+  // console.log(owner);
+
   function findUsername() {
     props.participants.forEach((user) => {
       let foundUser = user.find((user) => user.id === props.userID);
@@ -28,7 +31,7 @@ function UserItems(props) {
       sum += Number(item.price);
     });
 
-    setSubtotal(sum);
+    setSubtotal(sum.toFixed(2));
   }
 
   useEffect(() => {
@@ -45,21 +48,22 @@ function UserItems(props) {
           <p className="participant__subtotal">Subtotal:${subtotal}</p>
         </div>
 
-        {items.map((item) => {
-          return (
-            <div className="participant__item">
-              <div className="participant__item-img-box">
-                <img className="participant__item-img" src={item.img_src} />
+        {items &&
+          items.map((item) => {
+            return (
+              <div className="participant__item">
+                <div className="participant__item-img-box">
+                  <img className="participant__item-img" src={item.img_src} />
+                </div>
+                <div className="participant__item-content">
+                  <p className="participant__item-name">{item.name}</p>
+                  <p className="participant__item-desc">
+                    {item.price} &#10042; {item.specifications}
+                  </p>
+                </div>
               </div>
-              <div className="participant__item-content">
-                <p className="participant__item-name">{item.name}</p>
-                <p className="participant__item-desc">
-                  {item.price} &#10042; {item.specifications}
-                </p>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </div>
     </>
   );

@@ -7,21 +7,21 @@
   background-color: $white;
   border-right: solid 2px $border-tan;
   box-shadow: 18px 0px 4px 0px rgba(218, 205, 189, 0.25);
-  max-width: 28rem;
   width: 90px;
-  margin-left: 4rem;
+  margin-left: 0rem;
   @include flex-column;
   padding: 2rem;
-  padding-top: 0;
+  padding-top: 3rem;
   transition: width ease-in 0.2s;
-  z-index: 2;
+  z-index: 0;
 
-  @include breakpoint-max-size($tablet) {
+  @include breakpoint-min-size($tablet) {
     margin-left: 0;
-    width: 100%;
     overflow: scroll;
+    max-width: 28rem;
+    margin-left: 4rem;
+    padding-top: 0;
   }
-
   &__heading {
     font-family: "Unbounded", cursive;
     font-weight: 900;
@@ -58,10 +58,10 @@
 }
 
 .open-width {
-  width: 28rem;
+  width: 100%;
 
   @include breakpoint-max-size($tablet) {
-    width: 100%;
+    width: 28rem;
     gap: 0rem;
   }
 }

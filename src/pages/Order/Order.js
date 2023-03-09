@@ -20,22 +20,34 @@ function Order() {
   const [host, setHost] = useState([]);
   const [participants, setParticipants] = useState([]);
   const [otherparticipants, setOtherParticipants] = useState([]);
+  const [orderTotal, setorderTotal] = useState();
 
   let [userID, setuserID] = useState(sessionStorage.getItem("id"));
   const [userOrders, setUserOrders] = useState([]);
-
-  function findParticipants() {
-    axios.get("http://localhost:8080/participants").then((response) => {
-      let people = response.data.filter((order) => {
-        return order.user_id === parseInt(userID);
-      });
-      setParticipants(people);
-    });
-  }
+  const [viewport, setViewport] = useState({
+    width: undefined,
+    height: undefined,
+  });
 
   useEffect(() => {
-    findParticipants();
-  }, [userID]);
+    function handleResize() {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  function findParticipants() {
+    axios
+      .get("http://localhost:8080/participants/" + userID)
+      .then((response) => {
+        setParticipants(response.data);
+      });
+  }
 
   function findOrders() {
     axios.get("http://localhost:8080/orders").then((response) => {
@@ -48,6 +60,10 @@ function Order() {
       setUserOrders(participating);
     });
   }
+
+  useEffect(() => {
+    findParticipants();
+  }, [userID]);
 
   useEffect(() => {
     findOrders();
@@ -72,57 +88,73 @@ function Order() {
     });
   }
 
-  function getInfo() {
-    axios.get("http://localhost:8080/orders").then((response) => {
-      let filteredInfo = response.data.filter((order) => {
-        return order.id === parseInt(orderID.orderID);
+  useEffect(() => {
+    getItems();
+  }, [orderID]);
+
+  function getOrder() {
+    axios
+      .get("http://localhost:8080/orders/" + orderID.orderID)
+      .then((response) => {
+        setOrderInfo(response.data);
       });
-
-      setOrderInfo(filteredInfo);
-    });
-
-    axios.get("http://localhost:8080/users/" + userID).then((response) => {
-      if (orderInfo[0].host_id === response.data[0].id) {
-        setHost(response.data[0]);
-      } else {
-        return false;
-      }
-
-      let peopleOrdering = [];
-      participantNum.forEach((person) => {
-        let peoples = response.data.filter((users) => {
-          return users.id === person;
-        });
-        peopleOrdering.push(peoples);
-      });
-
-      setOtherParticipants(peopleOrdering);
-    });
   }
 
   useEffect(() => {
+    getOrder();
+  }, [orderID]);
+
+  function getInfo() {
+    // goal: if orderInfo.host_id is not equal undefined, run this axios call
+    if (orderInfo.length > 0) {
+      axios
+        .get("http://localhost:8080/users/" + orderInfo[0].host_id)
+        .then((response) => {
+          if (orderInfo[0] && orderInfo[0].host_id === response.data[0].id) {
+            setHost(response.data[0]);
+          } else {
+            return false;
+          }
+
+          let peopleOrdering = [];
+          participantNum.forEach((person) => {
+            let peoples = response.data.filter((users) => {
+              return users.id === person;
+            });
+            peopleOrdering.push(peoples);
+          });
+
+          setOtherParticipants(peopleOrdering);
+        });
+    }
+  }
+  useEffect(() => {
     getInfo();
-    getItems();
-  }, []);
+  }, [orderInfo, participantNum]);
 
   return (
     <>
-      {Object.keys(orderID).length > 0 ? (
-        <>
-          <MobileNav></MobileNav>
+      <MobileNav></MobileNav>
+      <Navbar></Navbar>
 
-          <section className="order">
-            <Navbar></Navbar>
-            <OrderSidebar userOrders={state}></OrderSidebar>
+      <section className="orders">
+        {(Object.keys(orderID).length > 0 && viewport.width > 768) ||
+          (Object.keys(orderID).length === 0 && (
+            <OrderSidebar userOrders={userOrders}></OrderSidebar>
+          ))}
+        {Object.keys(orderID).length > 0 ? (
+          <>
             <div className="order__body">
               <div className="order__top-bar">
                 <div className="order__corner-info">
-                  <p className="order__num">ORDER #</p>
+                  <p className="order__num">
+                    ORDER #{orderInfo[0] && orderInfo[0].id}
+                  </p>
                   <p className="order__name">
                     {orderInfo[0] && orderInfo[0].name}
                   </p>
                 </div>
-                <Link to="/additem">
+                <Link to="/additem" className="order__add-link">
                   <div className="order__add">
                     <img className="order__add-icon" src={plus} />
                     <p className="order__add-text">Add item</p>
@@ -159,29 +191,29 @@ function Order() {
                   </div>
                 </div>
               </div>
-              {participantNum.map((person) => {
-                return (
-                  <UserItems
-                    key={person}
-                    userID={person}
-                    itemData={itemData}
-                    participants={otherparticipants}
-                  ></UserItems>
-                );
-              })}
+              {participantNum &&
+                participantNum.map((person) => {
+                  return (
+                    <UserItems
+                      key={person}
+                      userID={person}
+                      itemData={itemData}
+                      participants={otherparticipants}
+                      setordertotal={setorderTotal}
+                      ordertotal={orderTotal}
+                    ></UserItems>
+                  );
+                })}
+
+              <p className="order__total">Order total:$00.00</p>
             </div>
-          </section>
-        </>
-      ) : (
-        <section className="orders">
-          <Navbar></Navbar>
-          <MobileNav></MobileNav>
-          {userOrders && <OrderSidebar userOrders={userOrders}></OrderSidebar>}
+          </>
+        ) : (
           <div className="orders__empty">
             <img src={noOrders} className="orders__empty-img" />
           </div>
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
 }

@@ -29,6 +29,7 @@
     @include flex-row;
     gap: 0.2rem;
     width: max-content;
+    align-items: center;
   }
 
   &__info-img {
@@ -44,7 +45,7 @@
 
   &__info {
     font-family: "Uncut Sans";
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     color: $off-black;
     @include removeMarginBlock;
   }

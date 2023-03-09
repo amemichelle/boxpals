@@ -9,6 +9,14 @@
   @include flex-row;
   overflow: hidden;
 
+  &__total {
+    padding-left: 4.5rem;
+    font-family: "Unbounded";
+    font-size: 3rem;
+    font-weight: 600;
+    color: $forest-green;
+  }
+
   &__body {
     width: 100%;
     height: 100%;
@@ -39,6 +47,11 @@
     gap: 0.5rem;
     height: max-content;
     padding: 0rem 1rem;
+    transition: ease-in-out 0.5s;
+
+    &:hover {
+      background-color: $border-tan;
+    }
 
     @include breakpoint-max-size($tablet) {
       width: 100%;
@@ -54,6 +67,14 @@
       font-size: 1rem;
       font-weight: 500;
       padding-right: 0.5rem;
+    }
+
+    &-link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -136,16 +157,17 @@
   width: 100vw;
   height: 100vh;
   @include flex-row;
+  overflow: hidden;
 
   &__empty {
-    width: 100%;
-    height: 100%;
-    @include flex-row;
-    align-items: center;
-    justify-content: center;
+    display: none;
 
-    @include breakpoint-max-size($tablet) {
-      display: none;
+    @include breakpoint-min-size($desktop) {
+      width: 100%;
+      height: 100%;
+      @include flex-row;
+      align-items: center;
+      justify-content: center;
     }
   }
 }

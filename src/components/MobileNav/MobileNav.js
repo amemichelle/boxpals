@@ -17,7 +17,7 @@ function MobileNav() {
         className="m-nav"
         onClick={() => {
           setIsOpen(!isOpen);
-          document.body.classList.add("no-scroll");
+          // document.body.classList.add("no-scroll");
         }}
       >
         <img className="m-nav__menu-icon" src={menu} />
@@ -32,11 +32,11 @@ function MobileNav() {
           className="m-nav__close-icon"
           onClick={() => {
             setIsOpen(!isOpen);
-            document.body.classList.remove("no-scroll");
+            // document.body.classList.remove("no-scroll");
           }}
         />
 
-        <div clasName="m-nav__container">
+        <div className="m-nav__container">
           <NavLink className="m-nav__link" to="/">
             <div className="m-nav__link-block">
               <img className="m-nav__link-img" src={home} />
