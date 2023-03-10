@@ -84,6 +84,7 @@ function Order() {
       });
 
       setparticipantNum(ids);
+      console.log(participantNum);
       setitemData(filteredForOrder);
     });
   }
@@ -104,8 +105,7 @@ function Order() {
     getOrder();
   }, [orderID]);
 
-  function getInfo() {
-    // goal: if orderInfo.host_id is not equal undefined, run this axios call
+  function getHost() {
     if (orderInfo.length > 0) {
       axios
         .get("http://localhost:8080/users/" + orderInfo[0].host_id)
@@ -115,22 +115,33 @@ function Order() {
           } else {
             return false;
           }
-
-          let peopleOrdering = [];
-          participantNum.forEach((person) => {
-            let peoples = response.data.filter((users) => {
-              return users.id === person;
-            });
-            peopleOrdering.push(peoples);
-          });
-
-          setOtherParticipants(peopleOrdering);
         });
     }
   }
+
+  useEffect(() => {
+    getHost();
+  }, [orderInfo]);
+
+  function getInfo() {
+    // goal: if orderInfo.host_id is not equal undefined, run this axios call
+
+    axios.get("http://localhost:8080/users").then((response) => {
+      let peopleOrdering = [];
+      participantNum.forEach((person) => {
+        let peoples = response.data.find((users) => {
+          return users.id === person;
+        });
+        peopleOrdering.push(peoples);
+      });
+
+      setOtherParticipants(peopleOrdering);
+    });
+  }
+
   useEffect(() => {
     getInfo();
-  }, [orderInfo, participantNum]);
+  }, [participantNum]);
 
   return (
     <>

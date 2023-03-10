@@ -46,6 +46,7 @@ function OrderSidebar(props) {
           props.userOrders.map((order) => {
             return (
               <OrderCard
+                key={order.id}
                 isopen={isOpen}
                 orderData={order}
                 allOrders={props.userOrders}

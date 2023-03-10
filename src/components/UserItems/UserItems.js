@@ -13,16 +13,21 @@ function UserItems(props) {
     setItems(userItems);
   }
 
-  // console.log(props.participants);
-  // console.log(owner);
-
   function findUsername() {
-    props.participants.forEach((user) => {
-      let foundUser = user.find((user) => user.id === props.userID);
-      if (foundUser != undefined) {
-        setOwner(foundUser);
-      }
+    let x = props.participants.find((user) => {
+      return user.id && user.id === props.userID;
     });
+
+    setOwner(x);
+
+    // props.participants.forEach((user) => {
+    //   let foundUser = user.find((user) => user.id === props.userID);
+    //   if (foundUser != undefined) {
+    //     setOwner(foundUser);
+    //     console.log(props.participants);
+    //     console.log(owner);
+    //   }
+    // });
   }
 
   function getSubtotal() {
