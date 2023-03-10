@@ -88,7 +88,6 @@ function Order() {
       });
       setorderTotal(total.toFixed(2));
       setparticipantNum(ids);
-      console.log(participantNum);
       setitemData(filteredForOrder);
     });
   }

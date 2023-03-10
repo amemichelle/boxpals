@@ -7,10 +7,8 @@ import axios from "axios";
 function InfoModal() {
   const [user, setUser] = useState({});
   let userID = sessionStorage.getItem("id");
-  console.log(userID);
   function findUser() {
     axios.get("http://localhost:8080/users/" + userID).then((response) => {
-      console.log(response);
       setUser(response.data[0]);
     });
   }
