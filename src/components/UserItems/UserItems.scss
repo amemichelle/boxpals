@@ -4,12 +4,12 @@
 
 .participant {
   background-color: $white;
-  margin: 2rem 5rem;
+  margin: 1.5rem;
   border-radius: 1rem;
   border: 1.5px solid $border-tan;
 
-  @include breakpoint-max-size($tablet) {
-    margin: 1.5rem;
+  @include breakpoint-min-size($desktop) {
+    margin: 2rem 5rem;
   }
 
   &__name {
@@ -20,25 +20,26 @@
   }
 
   &__top-bar {
-    @include flex-row;
-    justify-content: space-between;
-    padding: 1.5rem;
     border-bottom: 1px solid $border-tan;
 
-    @include breakpoint-max-size($tablet) {
-      @include flex-column;
-      justify-content: flex-start;
-      gap: 1rem;
+    @include flex-column;
+    justify-content: flex-start;
+    gap: 1rem;
+
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
+      justify-content: space-between;
+      padding: 1.5rem;
     }
   }
 
   &__item {
-    @include flex-row;
+    @include flex-column;
     padding: 1.5rem 0rem;
     align-items: center;
 
-    @include breakpoint-max-size($tablet) {
-      @include flex-column;
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
     }
 
     &:nth-child(even) {
@@ -47,12 +48,13 @@
 
     &-name {
       font-family: "Unbounded";
-      font-size: 1.3rem;
-      max-width: 90%;
 
-      @include breakpoint-max-size($tablet) {
-        font-size: 1.1rem;
-        max-width: 100%;
+      font-size: 1.1rem;
+      max-width: 100%;
+
+      @include breakpoint-min-size($tablet) {
+        font-size: 1.3rem;
+        max-width: 90%;
       }
     }
 
@@ -64,21 +66,22 @@
       &-box {
         height: 8rem;
         overflow: hidden;
-        width: 40%;
-        margin-right: 2rem;
-        border: 0.5px solid $border-tan;
 
-        @include breakpoint-max-size($tablet) {
-          width: 90%;
-          margin-right: 0rem;
+        border: 0.5px solid $border-tan;
+        width: 90%;
+        margin-right: 0rem;
+
+        @include breakpoint-min-size($desktop) {
+          width: 40%;
+          margin-right: 2rem;
         }
       }
     }
 
     &-content {
-      width: 60%;
-      @include breakpoint-max-size($tablet) {
-        width: 90%;
+      width: 90%;
+      @include breakpoint-min-size($desktop) {
+        width: 60%;
       }
     }
   }

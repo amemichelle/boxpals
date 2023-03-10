@@ -6,23 +6,24 @@
   border: 2px solid $med-tan;
   border-radius: 1rem;
   padding: 2rem 1rem;
-  width: 23rem;
+  width: 100%;
   @include flex-column;
   justify-content: space-between;
   margin-bottom: 1rem;
   z-index: 1;
 
-  @include breakpoint-max-size($tablet) {
-    width: 100%;
+  @include breakpoint-min-size($desktop) {
+    width: 23rem;
   }
 
   &__container {
-    @include flex-row;
+    @include flex-column;
+
     width: 100%;
     justify-content: space-between;
 
-    @include breakpoint-max-size($tablet) {
-      @include flex-column;
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
     }
   }
   &__info-block {
@@ -54,9 +55,13 @@
     @include removeMarginBlock;
     font-family: "Unbounded";
     font-weight: 900;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     color: $forest-green;
     padding-bottom: 2rem;
+
+    @include breakpoint-min-size($desktop) {
+      font-size: 1.8rem;
+    }
   }
 }
 
@@ -65,7 +70,7 @@
 }
 
 .divider {
-  @include breakpoint-max-size($tablet) {
+  @include breakpoint-max-size($desktop) {
     display: none;
   }
 }

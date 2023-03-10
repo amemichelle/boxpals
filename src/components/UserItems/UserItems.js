@@ -19,15 +19,6 @@ function UserItems(props) {
     });
 
     setOwner(x);
-
-    // props.participants.forEach((user) => {
-    //   let foundUser = user.find((user) => user.id === props.userID);
-    //   if (foundUser != undefined) {
-    //     setOwner(foundUser);
-    //     console.log(props.participants);
-    //     console.log(owner);
-    //   }
-    // });
   }
 
   function getSubtotal() {

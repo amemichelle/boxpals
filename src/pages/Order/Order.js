@@ -153,7 +153,7 @@ function Order() {
       <Navbar></Navbar>
 
       <section className="orders">
-        {((Object.keys(orderID).length > 0 && viewport.width > 768) ||
+        {((Object.keys(orderID).length > 0 && viewport.width >= 768) ||
           Object.keys(orderID).length === 0) && (
           <OrderSidebar userOrders={userOrders}></OrderSidebar>
         )}

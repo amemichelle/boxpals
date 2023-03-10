@@ -10,9 +10,9 @@
   overflow: hidden;
 
   &__total {
-    padding-left: 4.5rem;
+    padding-left: 1.5rem;
     font-family: "Unbounded";
-    font-size: 3rem;
+    font-size: 2rem;
     font-weight: 600;
     color: $forest-green;
   }
@@ -25,18 +25,22 @@
 
   &__top-bar {
     width: 100%;
-    @include flex-row;
-    justify-content: space-between;
-    padding: 1.5rem 5rem;
+    @include flex-column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    margin-top: 5rem;
+    gap: 1rem;
     border-bottom: 1px solid $border-tan;
-    align-items: flex-end;
 
-    @include breakpoint-max-size($tablet) {
-      @include flex-column;
-      align-items: flex-start;
-      padding: 1.5rem;
-      margin-top: 5rem;
-      gap: 1rem;
+    @include breakpoint-min-size($tablet) {
+      margin-top: 1rem;
+    }
+
+    @include breakpoint-min-size($desktop) {
+      align-items: flex-end;
+      @include flex-row;
+      justify-content: space-between;
+      padding: 1.5rem 5rem;
     }
   }
 
@@ -53,7 +57,7 @@
       background-color: $border-tan;
     }
 
-    @include breakpoint-max-size($tablet) {
+    @include breakpoint-min-size($tablet) {
       width: 100%;
     }
 
@@ -97,12 +101,12 @@
   &__key-info {
     background-color: $white;
 
-    margin: 2rem 5rem;
+    margin: 1.5rem;
     border-radius: 1rem;
     border: 1.5px solid $border-tan;
 
-    @include breakpoint-max-size($tablet) {
-      margin: 1.5rem;
+    @include breakpoint-min-size($desktop) {
+      margin: 2rem 5rem;
     }
   }
 }
@@ -117,17 +121,20 @@
   }
 
   &__container {
-    @include flex-row;
+    @include flex-column;
     justify-content: flex-start;
-    gap: 5rem;
+    gap: 1rem;
     height: max-content;
     padding: 1rem 2rem;
     padding-bottom: 2rem;
     width: 100%;
 
-    @include breakpoint-max-size($tablet) {
-      @include flex-column;
-      gap: 1rem;
+    @include breakpoint-min-size($tablet) {
+    }
+
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
+      gap: 5rem;
     }
   }
 
