@@ -54,7 +54,7 @@ function Signup() {
             />
 
             <input
-              type="text"
+              type="password"
               placeholder="Enter password"
               className="signup__input"
               name="password"

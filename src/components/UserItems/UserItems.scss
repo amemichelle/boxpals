@@ -7,12 +7,35 @@
   margin: 2rem 5rem;
   border-radius: 1rem;
   border: 1.5px solid $border-tan;
+  overflow: hidden;
+
+  @include breakpoint-min-size($desktop) {
+    margin: 2rem 5rem;
+  }
+
+  &__name {
+    @include removeMarginBlock;
+  }
+  &__subtotal {
+    @include removeMarginBlock;
+  }
 
   &__top-bar {
     @include flex-row;
     justify-content: space-between;
     padding: 1rem 2rem;
     border-bottom: 1px solid $border-tan;
+
+    @include flex-column;
+    justify-content: flex-start;
+    padding: 1rem;
+    gap: 0.5rem;
+
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
+      justify-content: space-between;
+      padding: 1.5rem;
+    }
   }
 
   &__item {
@@ -33,7 +56,7 @@
     &-img {
       width: 100%;
       position: relative;
-      bottom: 45%;
+      bottom: 20%;
 
       &-box {
         height: 8rem;
