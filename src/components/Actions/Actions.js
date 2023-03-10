@@ -38,7 +38,7 @@ function Actions(props) {
                 <p className="actions__text" id="order-num">
                   ORDER #{order.id}
                 </p>
-                <Link to={"/order/" + order.id}>
+                <Link to={"/order/" + order.id} className="actions__order">
                   <p className="actions__text">{order.name}</p>
                 </Link>
                 <p className="actions__text">{order.status}</p>

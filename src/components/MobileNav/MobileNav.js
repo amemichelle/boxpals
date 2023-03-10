@@ -33,30 +33,52 @@ function MobileNav() {
           onClick={() => {
             setIsOpen(!isOpen);
             // document.body.classList.remove("no-scroll");
+
+            //convert navlink to usenavigate() to utilize onclick ??
           }}
         />
 
         <div className="m-nav__container">
           <NavLink className="m-nav__link" to="/">
-            <div className="m-nav__link-block">
+            <div
+              className="m-nav__link-block"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
               <img className="m-nav__link-img" src={home} />
               Home
             </div>
           </NavLink>
           <NavLink className="m-nav__link" to="/orders">
-            <div className="m-nav__link-block">
+            <div
+              className="m-nav__link-block"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
               <img className="m-nav__link-img" src={orders} />
               Orders
             </div>
           </NavLink>
           <NavLink className="m-nav__link" to="/addorder">
-            <div className="m-nav__link-block">
+            <div
+              className="m-nav__link-block"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
               <img className="m-nav__link-img" src={basket} />
               New Order
             </div>
           </NavLink>
           <NavLink className="m-nav__link" to="/additem">
-            <div className="m-nav__link-block">
+            <div
+              className="m-nav__link-block"
+              onClick={() => {
+                setIsOpen(!isOpen);
+              }}
+            >
               <img className="m-nav__link-img" src={additem} />
               Add Item
             </div>

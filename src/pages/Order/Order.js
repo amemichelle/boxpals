@@ -76,13 +76,17 @@ function Order() {
       });
 
       let ids = [];
+      let total = 0;
+      // get total here : )
 
       filteredForOrder.forEach((item) => {
         if (ids.includes(item.user_id) === false) {
           ids.push(item.user_id);
         }
-      });
 
+        total += Number(item.price);
+      });
+      setorderTotal(total.toFixed(2));
       setparticipantNum(ids);
       console.log(participantNum);
       setitemData(filteredForOrder);
@@ -149,10 +153,10 @@ function Order() {
       <Navbar></Navbar>
 
       <section className="orders">
-        {(Object.keys(orderID).length > 0 && viewport.width > 768) ||
-          (Object.keys(orderID).length === 0 && (
-            <OrderSidebar userOrders={userOrders}></OrderSidebar>
-          ))}
+        {((Object.keys(orderID).length > 0 && viewport.width > 768) ||
+          Object.keys(orderID).length === 0) && (
+          <OrderSidebar userOrders={userOrders}></OrderSidebar>
+        )}
         {Object.keys(orderID).length > 0 ? (
           <>
             <div className="order__body">
@@ -210,13 +214,13 @@ function Order() {
                       userID={person}
                       itemData={itemData}
                       participants={otherparticipants}
-                      setordertotal={setorderTotal}
-                      ordertotal={orderTotal}
                     ></UserItems>
                   );
                 })}
 
-              <p className="order__total">Order total:$00.00</p>
+              <p className="order__total">
+                Order total: ${orderTotal && orderTotal}
+              </p>
             </div>
           </>
         ) : (
