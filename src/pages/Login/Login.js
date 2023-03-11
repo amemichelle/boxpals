@@ -37,7 +37,7 @@ function Login(props) {
     <>
       <section className="login">
         <div className="login__container">
-          <img src={tape} className="login__stickers-tape" />
+          <img src={tape} className="login__stickers-tape" alt="" />
 
           <h1 className="login__heading">LOG IN</h1>
           <form className="login__form" onSubmit={submitForm}>
@@ -49,7 +49,7 @@ function Login(props) {
             />
 
             <input
-              type="text"
+              type="password"
               placeholder="Enter password"
               className="login__input"
               name="password"
@@ -61,8 +61,8 @@ function Login(props) {
           </form>
         </div>
 
-        <img src={snake} className="login__stickers-snake" />
-        <img src={circle} className="login__stickers-circle" />
+        <img src={snake} className="login__stickers-snake" alt="" />
+        <img src={circle} className="login__stickers-circle" alt="" />
       </section>
     </>
   );
