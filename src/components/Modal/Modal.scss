@@ -43,7 +43,7 @@
     bottom: 1rem;
 
     &-text {
-      font-family: "Unbounded";
+      font-family: "Unbounded", sans-serif;
       color: white;
       font-weight: 600;
       font-size: 1.2rem;
@@ -52,7 +52,7 @@
   }
 
   &__name {
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 1.6rem;
     font-weight: 600;
     @include removeMarginBlock;
@@ -60,14 +60,14 @@
   }
 
   &__body {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 1rem;
     @include removeMarginBlock;
     padding: 0.5rem 0;
   }
 
   &__order {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 1rem;
     @include removeMarginBlock;
     padding-top: 3rem;

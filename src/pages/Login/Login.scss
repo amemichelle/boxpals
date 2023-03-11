@@ -15,7 +15,7 @@
   }
 
   &__heading {
-    font-family: "Unbounded", cursive;
+    font-family: "Unbounded", sans-serif, cursive;
     font-weight: 900;
     font-size: 3rem;
     color: $forest-green;
@@ -41,7 +41,7 @@
   }
 
   &__submit {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-weight: 400;
     font-size: 1rem;
     background-color: #004921;

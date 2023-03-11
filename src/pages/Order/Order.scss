@@ -11,7 +11,7 @@
 
   &__total {
     padding-left: 1.5rem;
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 2rem;
     font-weight: 600;
     color: $forest-green;
@@ -70,7 +70,7 @@
     }
 
     &-text {
-      font-family: "Uncut Sans";
+      font-family: "Uncut Sans", sans-serif;
       color: $white;
       font-size: 1rem;
       font-weight: 500;
@@ -87,7 +87,7 @@
   }
 
   &__num {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     color: $black;
     font-size: 0.8rem;
     font-weight: 500;
@@ -95,7 +95,7 @@
   }
 
   &__name {
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     color: $border-tan;
     font-size: 2.5rem;
     font-weight: 600;
@@ -117,7 +117,7 @@
 
 .info {
   &__heading {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: 600;
     padding: 1rem 2rem;
@@ -148,7 +148,7 @@
 
   &__label {
     @include removeMarginBlock;
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-weight: 600;
     padding-bottom: 0.5rem;
     font-size: 1rem;
@@ -156,7 +156,7 @@
 
   &__details {
     @include removeMarginBlock;
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-weight: 500;
     padding-bottom: 0.5rem;
     font-size: 1rem;

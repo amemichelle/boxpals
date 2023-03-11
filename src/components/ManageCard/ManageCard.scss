@@ -21,7 +21,7 @@
   }
 
   &__order {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 0.8rem;
     color: #977b5e;
     @include removeMarginBlock;
@@ -29,7 +29,7 @@
 
   &__heading {
     @include removeMarginBlock;
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-weight: 900;
     font-size: 1.8rem;
     color: $forest-green;
@@ -69,7 +69,7 @@
     padding: 0.5rem 1rem;
     width: max-content;
     color: $white;
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 1rem;
     font-weight: 600;
   }

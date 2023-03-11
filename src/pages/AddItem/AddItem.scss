@@ -43,7 +43,7 @@
 }
 
 .header {
-  font-family: "Unbounded";
+  font-family: "Unbounded", sans-serif;
   font-size: 3rem;
   font-weight: 600;
   color: #8a7662;
@@ -66,7 +66,7 @@
 
   &__label {
     @include flex-column;
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 1rem;
     color: $black;
     gap: 0.5rem;
@@ -90,7 +90,7 @@
 
   &__button {
     background-color: $forest-green;
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-weight: 600;
     font-size: 1rem;
     color: $white;
@@ -123,7 +123,7 @@
   }
 
   &__name {
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-size: 2rem;
     padding-left: 2rem;
     font-size: 1.5rem;
@@ -133,7 +133,7 @@
 
   &__desc {
     padding-left: 2rem;
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 1rem;
     padding-bottom: 1rem;
 

@@ -38,14 +38,14 @@
   }
 
   &__number {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 0.8rem;
     color: $off-black;
     @include removeMarginBlock;
   }
 
   &__info {
-    font-family: "Uncut Sans";
+    font-family: "Uncut Sans", sans-serif;
     font-size: 0.8rem;
     color: $off-black;
     @include removeMarginBlock;
@@ -53,7 +53,7 @@
 
   &__name {
     @include removeMarginBlock;
-    font-family: "Unbounded";
+    font-family: "Unbounded", sans-serif;
     font-weight: 900;
     font-size: 1.2rem;
     color: $forest-green;
