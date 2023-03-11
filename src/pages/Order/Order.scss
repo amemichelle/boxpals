@@ -15,6 +15,10 @@
     font-size: 2rem;
     font-weight: 600;
     color: $forest-green;
+
+    @include breakpoint-min-size($desktop) {
+      padding-left: 5rem;
+    }
   }
 
   &__body {
@@ -54,7 +58,7 @@
     transition: ease-in-out 0.5s;
 
     &:hover {
-      background-color: $border-tan;
+      background-color: #977b5e;
     }
 
     @include breakpoint-min-size($tablet) {

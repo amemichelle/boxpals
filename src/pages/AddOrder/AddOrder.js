@@ -5,14 +5,18 @@ import MobileNav from "../../components/MobileNav/MobileNav";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+
 function AddOrder() {
   let userID = sessionStorage.getItem("id");
   const navigate = useNavigate();
   const showNotif = () => {
-    toast.success("Success Notification !", {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 2000,
-    });
+    toast.success(
+      "Your order was successfully created! Navigating to your order...",
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+      }
+    );
   };
 
   function handleSubmit(event) {
