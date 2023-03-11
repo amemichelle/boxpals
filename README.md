@@ -31,11 +31,13 @@ respective owners.
 ![screenshot of login screen](https://i.ibb.co/y0K56sD/Screenshot-2023-03-10-at-1-25-11-PM.png)
 
 **Login Page:** Log in to Boxpals through this page using the provided login, or after creating your own account on the /signup page.
+
 \_\_
 
 ![screenshot of home page](https://i.ibb.co/D8cbmT5/Screenshot-2023-03-10-at-1-22-15-PM.png)
 
 **Home Page:** View group orders requiring your attention, group orders you manage, and items you are ordering on this page.
+
 \_\_
 
 ![screenshot of item detailed view](https://i.ibb.co/y84B0kG/Screenshot-2023-03-10-at-1-22-49-PM.png)
@@ -46,7 +48,8 @@ respective owners.
 
 ![screeshot of orders page](https://i.ibb.co/N194F79/Screenshot-2023-03-10-at-1-48-17-PM.png)
 
-**Orders Page:** View orders you are participating in and see what you and other people are ordering. You can also view your subtotal for each order.  
+**Orders Page:** View orders you are participating in and see what you and other people are ordering. You can also view your subtotal for each order.
+
 \_\_
 
 ![screenshot of new order page](https://i.ibb.co/vjfz5Cj/Screenshot-2023-03-10-at-1-59-54-PM.png)
@@ -55,7 +58,7 @@ respective owners.
 
 \_\_
 
-![App Screenshot](https://i.ibb.co/yXGD7qm/Screenshot-2023-03-10-at-2-24-15-PM.png)
+![screenshot of add itempage](https://i.ibb.co/yXGD7qm/Screenshot-2023-03-10-at-2-24-15-PM.png)
 
 **Add Item Page:** Allows you to add items to any order you are participating in. Builds a preview while you are filling out the form on larger screen sizes.
 
