@@ -7,7 +7,6 @@
   background-color: $white;
   height: max-content;
   width: 100%;
-  overflow: hidden;
 
   @include breakpoint-min-size($desktop) {
     width: 100%;
@@ -24,8 +23,7 @@
   &__item {
     @include flex-row;
     padding: 0 1.5rem;
-    justify-content: flex-start;
-    gap: 14%;
+    justify-content: space-between;
 
     &:nth-child(even) {
       background-color: $light-tan;
@@ -34,21 +32,6 @@
 
   &__text {
     font-size: 0.9rem;
-    width: 5rem;
-    @include breakpoint-min-size($tablet) {
-      width: 8rem;
-    }
-  }
-
-  &__order {
-    text-decoration: none;
-    font-family: "Uncut Sans";
-    font-weight: 600;
-    color: $forest-green;
-
-    &:hover {
-      color: $border-tan;
-    }
   }
 }
 

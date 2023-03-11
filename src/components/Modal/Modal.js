@@ -43,6 +43,7 @@ function Modal(props) {
           {props.itemData.specifications}
         </p>
         <p className="modal__order">
+          {" "}
           <span className="bold">order:</span> {orderName && orderName.name}
         </p>
       </div>

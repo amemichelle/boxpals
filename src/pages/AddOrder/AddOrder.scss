@@ -3,25 +3,14 @@
 @import "../../styles/partials/_Variables";
 
 .order-page {
-  @include flex-column;
-  padding-top: 4rem;
-
-  @include breakpoint-min-size($tablet) {
-    @include flex-row;
-    padding-top: 0;
-  }
+  @include flex-row;
 
   &__header {
     font-family: "Unbounded";
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     color: #8a7662;
-    margin-left: 1.5rem;
-
-    @include breakpoint-min-size($tablet) {
-      font-size: 3rem;
-      margin-left: 8rem;
-    }
+    margin-left: 8rem;
   }
 
   &__form {
@@ -33,18 +22,9 @@
       border-radius: 1rem;
       background-color: white;
       height: max-content;
-      width: 85%;
-      margin-left: 1.5rem;
+      width: 40rem;
+      margin-left: 8rem;
       padding: 2rem;
-
-      @include breakpoint-min-size($tablet) {
-        margin-left: 8rem;
-        width: 100%;
-      }
-
-      @include breakpoint-min-size($desktop) {
-        width: 40rem;
-      }
     }
   }
 
@@ -69,11 +49,7 @@
     padding: 0.6rem;
     width: 12rem;
     outline: none;
-    align-self: center;
+    align-self: flex-end;
     margin-top: 1rem;
-
-    @include breakpoint-min-size($tablet) {
-      align-self: flex-end;
-    }
   }
 }

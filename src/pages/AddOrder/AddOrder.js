@@ -1,10 +1,10 @@
 import "./AddOrder.scss";
 import axios from "axios";
 import Navbar from "../../components/Navbar/Navbar";
-import MobileNav from "../../components/MobileNav/MobileNav";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
+
 function AddOrder() {
   let userID = sessionStorage.getItem("id");
   const navigate = useNavigate();
@@ -23,9 +23,9 @@ function AddOrder() {
 
     let splitURL = event.target.order_name.value.split("/");
     let orderID = Math.floor(Math.random() * 1000) + 1;
+
     let orderName = splitURL[2].split(".");
 
-    let participantEmail = event.target.order__participants.value;
     let newOrder = {
       id: orderID,
       name: orderName[0],
@@ -39,25 +39,6 @@ function AddOrder() {
       order_id: orderID,
       isHost: true,
     };
-
-    axios
-      .get("http://localhost:8080/users/participant/" + participantEmail)
-      .then((response) => {
-        let invitedParticipant = {
-          id: Math.floor(Math.random() * 1000) + 1,
-          user_id: response.data[0].id,
-          order_id: orderID,
-          isHost: false,
-        };
-
-        axios.post("http://localhost:8080/participants", invitedParticipant, {
-          headers: {
-            "Access-Control-Allow-Origin": "*",
-            "Content-Type": "application/json",
-            Accept: "application/json",
-          },
-        });
-      });
 
     axios.post("http://localhost:8080/orders", newOrder, {
       headers: {
@@ -74,15 +55,10 @@ function AddOrder() {
         Accept: "application/json",
       },
     });
-
-    setTimeout(() => {
-      navigate("/order/" + orderID);
-    }, 3000);
   }
 
   return (
     <>
-      <MobileNav></MobileNav>
       <div className="order-page">
         <Navbar></Navbar>
 
@@ -104,15 +80,12 @@ function AddOrder() {
                 Invite participants
                 <input
                   type="text"
-                  name="order__participants"
+                  name="order_participant"
                   className="order-page__input"
                 ></input>
               </label>
 
-              <button className="order-page__button" onClick={showNotif}>
-                Create order
-              </button>
-              <ToastContainer />
+              <button className="order-page__button">Create order</button>
             </form>
             <ToastContainer />
           </div>
