@@ -14,11 +14,7 @@
     @include flex-column;
     align-items: center;
     justify-content: center;
-    z-index: 4;
-  }
-
-  &__logout {
-    align-self: flex-end;
+    z-index: 0;
   }
 
   &__container {
@@ -26,7 +22,7 @@
     align-items: flex-start;
     justify-content: center;
     gap: 1rem;
-    margin-left: 7.5rem;
+    margin-left: 6.5rem;
   }
 
   &__icon {
@@ -34,7 +30,6 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    position: relative;
 
     &:hover .navbar__icon-label {
       visibility: visible;
@@ -49,6 +44,7 @@
     font-family: "Uncut Sans";
     font-size: 1rem;
     padding: 0.5rem 1rem;
+    z-index: 20;
     visibility: hidden;
     opacity: 0;
     width: max-content;

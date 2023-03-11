@@ -13,16 +13,16 @@ function OrderCard(props) {
 
   let [participantNum, setParticipantNum] = useState();
   let [itemNum, setItemNum] = useState();
-  let [userID, setuserID] = useState(sessionStorage.getItem("id"));
 
   function getData() {
-    axios
-      .get("http://localhost:8080/participants/order/" + props.orderData.id)
-      .then((response) => {
-        setParticipantNum(response.data.length);
+    axios.get("http://localhost:8080/participants").then((response) => {
+      let people = response.data.filter((order) => {
+        return order.order_id === props.orderData.id;
       });
+      setParticipantNum(people.length);
+    });
 
-    axios.get("http://localhost:8080/items").then((response) => {
+    axios.get("http://localhost:8080/purchased").then((response) => {
       let items = response.data.filter((order) => {
         return order.order_id === props.orderData.id;
       });
@@ -40,40 +40,41 @@ function OrderCard(props) {
   }
 
   return (
-    // <div style={{ overflow: "hidden" }}>
-    <AnimatePresence>
-      {props.isopen && (
-        <motion.div
-          className={props.active ? "cards selected" : "cards"}
-          initial={{ x: "-100%", opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
-          exit={{ x: "-100%", opacity: 0 }}
-          transition={{ duration: 0.3 }}
-          onClick={handleClick}
-        >
-          <p className="cards__number">ORDER #{props.orderData.id}</p>
-          <h3 className="cards__name">{props.orderData.name}</h3>
+    <div style={{ overflow: "hidden" }}>
+      <AnimatePresence>
+        {props.isopen && (
+          <motion.div
+            className={props.active ? "cards selected" : "cards"}
+            initial={{ x: "-100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            exit={{ x: "-100%", opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            onClick={handleClick}
+          >
+            <p className="cards__number">ORDER #{props.orderData.id}</p>
+            <h3 className="cards__name">{props.orderData.name}</h3>
 
-          <div className="cards__container">
-            <div className="cards__info-block">
-              <img className="cards__info-img" src={statuscomplete} />
-              <p className="cards__info">{props.orderData.status}</p>
-            </div>
-            <img className="cards__info-img divider" src={circledivider} />
-            <div className="cards__info-block">
-              <img className="cards__info-img" src={cart} />
-              <p className="cards__info">{itemNum} Items</p>
-            </div>
-            <img className="cards__info-img divider" src={circledivider} />
+            <div className="cards__container">
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={statuscomplete} />
+                <p className="cards__info">{props.orderData.status}</p>
+              </div>
+              <img className="cards__info-img" src={circledivider} />
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={cart} />
+                <p className="cards__info">{itemNum} Items</p>
+              </div>
+              <img className="cards__info-img" src={circledivider} />
 
-            <div className="cards__info-block">
-              <img className="cards__info-img" src={group} />
-              <p className="cards__info">{participantNum} Participants</p>
+              <div className="cards__info-block">
+                <img className="cards__info-img" src={group} />
+                <p className="cards__info">{participantNum} Participants</p>
+              </div>
             </div>
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
   );
 }
 export default OrderCard;

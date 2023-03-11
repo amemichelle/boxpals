@@ -6,31 +6,21 @@
   border: 2px solid $med-tan;
   border-radius: 1rem;
   padding: 2rem 1rem;
-  width: 100%;
+  width: 23rem;
   @include flex-column;
   justify-content: space-between;
   margin-bottom: 1rem;
   z-index: 1;
 
-  @include breakpoint-min-size($desktop) {
-    width: 23rem;
-  }
-
   &__container {
-    @include flex-column;
-
+    @include flex-row;
     width: 100%;
     justify-content: space-between;
-
-    @include breakpoint-min-size($desktop) {
-      @include flex-row;
-    }
   }
   &__info-block {
     @include flex-row;
     gap: 0.2rem;
     width: max-content;
-    align-items: center;
   }
 
   &__info-img {
@@ -46,7 +36,7 @@
 
   &__info {
     font-family: "Uncut Sans";
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     color: $off-black;
     @include removeMarginBlock;
   }
@@ -55,22 +45,12 @@
     @include removeMarginBlock;
     font-family: "Unbounded";
     font-weight: 900;
-    font-size: 1.2rem;
+    font-size: 1.8rem;
     color: $forest-green;
     padding-bottom: 2rem;
-
-    @include breakpoint-min-size($desktop) {
-      font-size: 1.8rem;
-    }
   }
 }
 
 .selected {
   background-color: $med-tan;
-}
-
-.divider {
-  @include breakpoint-max-size($desktop) {
-    display: none;
-  }
 }
