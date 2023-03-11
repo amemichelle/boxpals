@@ -35,7 +35,7 @@ function Signup() {
     <>
       <section className="signup">
         <div className="signup__container">
-          <img src={tape} className="signup__stickers-tape" />
+          <img src={tape} className="signup__stickers-tape" alt="" />
 
           <h1 className="signup__heading">SIGN UP</h1>
           <form className="signup__form" onSubmit={handleSubmit}>
@@ -66,8 +66,8 @@ function Signup() {
           </form>
         </div>
 
-        <img src={snake} className="signup__stickers-snake" />
-        <img src={circle} className="signup__stickers-circle" />
+        <img src={snake} className="signup__stickers-snake" alt="" />
+        <img src={circle} className="signup__stickers-circle" alt="" />
       </section>
     </>
   );

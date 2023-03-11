@@ -29,18 +29,30 @@
 
   &__top-bar {
     width: 100%;
-    @include flex-row;
-    justify-content: space-between;
-    padding: 1.5rem 5rem;
+    @include flex-column;
+    align-items: flex-start;
+    padding: 1.5rem;
+    margin-top: 5rem;
+    gap: 1rem;
     border-bottom: 1px solid $border-tan;
-    align-items: flex-end;
+
+    @include breakpoint-min-size($tablet) {
+      margin-top: 1rem;
+    }
+
+    @include breakpoint-min-size($desktop) {
+      align-items: flex-end;
+      @include flex-row;
+      justify-content: space-between;
+      padding: 1.5rem 5rem;
+    }
   }
 
   &__add {
     background-color: $forest-green;
     @include flex-row;
     align-items: center;
-    gap: 1rem;
+    gap: 0.5rem;
     height: max-content;
     padding: 0rem 1rem;
     transition: ease-in-out 0.5s;
@@ -62,6 +74,15 @@
       color: $white;
       font-size: 1rem;
       font-weight: 500;
+      padding-right: 0.5rem;
+    }
+
+    &-link {
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: none;
+      }
     }
   }
 
@@ -83,54 +104,71 @@
 
   &__key-info {
     background-color: $white;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
 
+    margin: 1.5rem;
     border-radius: 1rem;
     border: 1.5px solid $border-tan;
   }
+}
 
-  .info {
-    &__heading {
-      font-family: "Uncut Sans";
-      font-size: 1.5rem;
-      font-weight: 600;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid $border-tan;
+.info {
+  &__heading {
+    font-family: "Uncut Sans";
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid $border-tan;
+  }
+
+  &__container {
+    @include flex-column;
+    justify-content: flex-start;
+    gap: 1rem;
+    height: max-content;
+    padding: 1rem 2rem;
+    padding-bottom: 2rem;
+    width: 100%;
+
+    @include breakpoint-min-size($tablet) {
     }
 
-    &__container {
-      @include flex-column;
-      justify-content: flex-start;
-      gap: 1rem;
+    &__pair {
       height: max-content;
-      padding: 1rem 2rem;
-      padding-bottom: 2rem;
-      width: 100%;
+    }
 
-      @include breakpoint-min-size($tablet) {
-      }
+    &__label {
+      @include removeMarginBlock;
+      font-family: "Uncut Sans";
+      font-weight: 600;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+    }
 
-      &__pair {
-        height: max-content;
-      }
+    &__details {
+      @include removeMarginBlock;
+      font-family: "Uncut Sans";
+      font-weight: 500;
+      padding-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+  }
 
-      &__label {
-        @include removeMarginBlock;
-        font-family: "Uncut Sans";
-        font-weight: 600;
-        padding-bottom: 0.5rem;
-        font-size: 1rem;
-      }
+  .orders {
+    background-color: $light-tan;
+    width: 100vw;
+    height: 100vh;
+    @include flex-row;
+    overflow: hidden;
 
-      &__details {
-        @include removeMarginBlock;
-        font-family: "Uncut Sans";
-        font-weight: 500;
-        padding-bottom: 0.5rem;
-        font-size: 1rem;
+    &__empty {
+      display: none;
+
+      @include breakpoint-min-size($desktop) {
+        width: 100%;
+        height: 100%;
+        @include flex-row;
+        align-items: center;
+        justify-content: center;
       }
     }
   }

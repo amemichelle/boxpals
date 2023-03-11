@@ -4,7 +4,7 @@
 
 .participant {
   background-color: $white;
-  margin: 2rem 5rem;
+  margin: 1.5rem;
   border-radius: 1rem;
   border: 1.5px solid $border-tan;
   overflow: hidden;
@@ -21,9 +21,6 @@
   }
 
   &__top-bar {
-    @include flex-row;
-    justify-content: space-between;
-    padding: 1rem 2rem;
     border-bottom: 1px solid $border-tan;
 
     @include flex-column;
@@ -39,9 +36,13 @@
   }
 
   &__item {
-    @include flex-row;
+    @include flex-column;
     padding: 1.5rem 0rem;
     align-items: center;
+
+    @include breakpoint-min-size($desktop) {
+      @include flex-row;
+    }
 
     &:nth-child(even) {
       background-color: $light-tan;
@@ -49,8 +50,14 @@
 
     &-name {
       font-family: "Unbounded";
-      font-size: 1.3rem;
-      max-width: 90%;
+
+      font-size: 1.1rem;
+      max-width: 100%;
+
+      @include breakpoint-min-size($tablet) {
+        font-size: 1.3rem;
+        max-width: 90%;
+      }
     }
 
     &-img {
@@ -61,14 +68,23 @@
       &-box {
         height: 8rem;
         overflow: hidden;
-        width: 40%;
-        margin-right: 2rem;
+
         border: 0.5px solid $border-tan;
+        width: 90%;
+        margin-right: 0rem;
+
+        @include breakpoint-min-size($desktop) {
+          width: 40%;
+          margin-right: 2rem;
+        }
       }
     }
 
     &-content {
-      width: 60%;
+      width: 90%;
+      @include breakpoint-min-size($desktop) {
+        width: 60%;
+      }
     }
   }
 }
