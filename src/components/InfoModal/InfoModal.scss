@@ -1,0 +1,10 @@
+@import "../../styles/partials/_FontStyles";
+@import "../../styles/partials/_Mixins";
+@import "../../styles/partials/_Variables";
+
+.info-modal {
+  width: 40rem;
+  height: max-content;
+  background-color: $white;
+  position: relative;
+}

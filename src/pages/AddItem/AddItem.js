@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddItem() {
   const [url, seturl] = useState("");
@@ -15,40 +17,44 @@ function AddItem() {
   const [selected, setSelected] = useState();
   const navigate = useNavigate();
 
+  const showNotif = () => {
+    toast.success("Success Notification !", {
+      position: toast.POSITION.TOP_RIGHT,
+      autoClose: 2000,
+    });
+  };
+
   let [participants, setParticipants] = useState([]);
 
   let [userID, setuserID] = useState(sessionStorage.getItem("id"));
 
-  function getOptions() {
+  function getParticipants() {
     axios
-      .get("http://localhost:8080/participants")
+      .get("http://localhost:8080/participants/" + userID)
       .then((response) => {
-        let people = response.data.filter((order) => {
-          return order.user_id === parseInt(userID);
-        });
+        setParticipants(response.data);
+      });
+  }
 
-        setParticipants(people);
-      })
-      .then(() => {
-        axios.get("http://localhost:8080/orders").then((response) => {
-          let participating = response.data.filter((order) => {
-            return participants.find((participant) => {
-              return participant.order_id === order.id;
-            });
-          });
-
-          let optionObjects = [];
-          participating.map((order) => {
-            let option = {
-              label: order.name,
-              value: order.id,
-            };
-            optionObjects.push(option);
-          });
-
-          setOptions(optionObjects);
+  function getOptions() {
+    axios.get("http://localhost:8080/orders").then((response) => {
+      let participating = response.data.filter((order) => {
+        return participants.find((participant) => {
+          return participant.order_id === order.id;
         });
       });
+
+      let optionObjects = [];
+      participating.map((order) => {
+        let option = {
+          label: order.name,
+          value: order.id,
+        };
+        optionObjects.push(option);
+      });
+
+      setOptions(optionObjects);
+    });
   }
 
   function handleSubmit(e) {
@@ -64,7 +70,7 @@ function AddItem() {
       user_id: userID,
     };
 
-    axios.post("http://localhost:8080/purchased", newItem, {
+    axios.post("http://localhost:8080/items", newItem, {
       headers: {
         "Access-Control-Allow-Origin": "*",
         "Content-Type": "application/json",
@@ -72,12 +78,15 @@ function AddItem() {
       },
     });
 
-    navigate("/order/" + selected.value);
+    setTimeout(() => {
+      navigate("/order/" + selected.value);
+    }, 3000);
   }
 
   useEffect(() => {
+    getParticipants();
     getOptions();
-  }, []);
+  }, [userID, participants]);
 
   return (
     <>
@@ -150,10 +159,26 @@ function AddItem() {
                 />
               </label>
               <label className="item-form__label">Adding to</label>
-              {options && <Select options={options} onChange={setSelected} />}
-              <button className="item-form__button" type="submit">
+              {options && (
+                <Select
+                  options={options}
+                  onChange={setSelected}
+                  styles={{
+                    control: (baseStyles, state) => ({
+                      ...baseStyles,
+                      borderColor: state.isFocused ? "green" : "grey",
+                    }),
+                  }}
+                />
+              )}
+              <button
+                className="item-form__button"
+                type="submit"
+                onClick={showNotif}
+              >
                 Submit
               </button>
+              <ToastContainer />
             </form>
           </div>
         </div>
