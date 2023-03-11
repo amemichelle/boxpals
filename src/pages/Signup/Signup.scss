@@ -49,9 +49,10 @@
     border: 0;
     margin-top: 1rem;
     color: $white;
+    transition: ease-in-out 0.5s;
 
     &:hover {
-      background-color: black;
+      background-color: #977b5e;
     }
   }
 
@@ -88,7 +89,6 @@
     padding: 0 2rem;
     padding-bottom: 4rem;
     z-index: 2;
-    // min-height: 50%;
     justify-content: center;
     height: 100%;
 
