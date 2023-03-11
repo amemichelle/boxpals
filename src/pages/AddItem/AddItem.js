@@ -49,7 +49,7 @@ function AddItem() {
 
       let optionObjects = [];
       participating.map((order) => {
-        if (order.status != "completed") {
+        if (order.status !== "completed") {
           let option = {
             label: order.name,
             value: order.id,
