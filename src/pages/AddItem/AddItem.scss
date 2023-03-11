@@ -69,19 +69,13 @@
 }
 
 .preview {
-  display: none;
-
-  @include breakpoint-min-size($desktop) {
-    border: 2px solid #dacdbd;
-    border-radius: 0.5rem;
-    background-color: white;
-    height: max-content;
-    width: 25%;
-    margin-top: 7.8rem;
-    display: block;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
-  }
+  border: 2px solid #dacdbd;
+  border-radius: 0.5rem;
+  background-color: white;
+  height: max-content;
+  width: 30%;
+  margin-left: 2rem;
+  margin-top: 7.8rem;
 
   &__content {
     @include flex-row;
@@ -90,20 +84,14 @@
 
   &__name {
     font-family: "Unbounded";
-    font-size: 1.5rem;
-    padding: 0rem 2rem;
-    @include removeMarginBlock;
+    font-size: 2rem;
+    padding-left: 2rem;
   }
 
   &__desc {
     padding-left: 2rem;
     font-family: "Uncut Sans";
     font-size: 1rem;
-    padding-bottom: 1rem;
-
-    &.no-padding {
-      padding-left: 0rem;
-    }
   }
 
   &__accent {

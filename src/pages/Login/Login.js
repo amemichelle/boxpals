@@ -49,7 +49,7 @@ function Login(props) {
             />
 
             <input
-              type="password"
+              type="text"
               placeholder="Enter password"
               className="login__input"
               name="password"

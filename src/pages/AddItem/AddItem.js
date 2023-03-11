@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import Select from "react-select";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 function AddItem() {
   const [url, seturl] = useState("");
@@ -16,16 +14,6 @@ function AddItem() {
   const [itemlink, setItemLink] = useState("");
   const [selected, setSelected] = useState();
   const navigate = useNavigate();
-
-  const showNotif = () => {
-    toast.success(
-      "Your item was successfully added! Navigating to your order...",
-      {
-        position: toast.POSITION.TOP_RIGHT,
-        autoClose: 2000,
-      }
-    );
-  };
 
   let [participants, setParticipants] = useState([]);
 
@@ -51,14 +39,11 @@ function AddItem() {
 
           let optionObjects = [];
           participating.map((order) => {
-            if (order.status != "completed") {
-              let option = {
-                label: order.name,
-                value: order.id,
-              };
-
-              optionObjects.push(option);
-            }
+            let option = {
+              label: order.name,
+              value: order.id,
+            };
+            optionObjects.push(option);
           });
 
           setOptions(optionObjects);
@@ -174,20 +159,14 @@ function AddItem() {
         </div>
 
         <div className="preview">
-          {url && (
-            <div className="img-preview">
-              <img
-                src={url}
-                className="page__img"
-                alt="visual of item being added to a group order"
-              />
-            </div>
-          )}
+          <div className="img-preview">
+            <img src={url} className="page__img" />
+          </div>
           <p className="preview__name">{name}</p>
           <div className="preview__content">
             {price && <p className="preview__desc">${price}</p>}
             {specs && (
-              <p className="preview__desc no-padding">
+              <p className="preview__desc">
                 <span className="preview__accent">&#10042;</span>
                 {specs}
               </p>
@@ -195,7 +174,6 @@ function AddItem() {
           </div>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 }

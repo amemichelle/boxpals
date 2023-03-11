@@ -1,92 +1,70 @@
-# Boxpals
+# Getting Started with Create React App
 
-Boxpals is a web-application for groups that love to shop online and receive bulk discounts, but hate the hassle of organizing for several people. By ordering with others in the same locale, people can:
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-- Reduce their carbon footprint by placing one bulk shipment instead of several smaller deliveries
-- Save money by reaching thresholds for additional savings, which would be harder to reach alone.
+## Available Scripts
 
-## Key Features
+In the project directory, you can run:
 
-- Manage your group orders + items purchased across different group orders on the home dashboard.
-- Create new group orders & invite other users to participate via email address.
-- Add items to group orders + automatically calculate shopping totals.
+### `npm start`
 
-## Tech Stack
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-- **Client:** Javascript (React.js), CSS(SASS)
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-- **Server:** Node, Express, knex.js, axios
+### `npm test`
 
-- **Libraries:** react-select, react-functional-modal, react-toastify, framer-motion, react-router-dom
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-- **Database:** mySQL
+### `npm run build`
 
-```
-All data/images used in sample data belong to their
-respective owners.
-```
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## Screenshots / How to Use
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-![screenshot of login screen](https://i.ibb.co/y0K56sD/Screenshot-2023-03-10-at-1-25-11-PM.png)
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-**Login Page:** Log in to Boxpals through this page using the provided login, or after creating your own account on the /signup page.
-\_\_
+### `npm run eject`
 
-![screenshot of home page](https://i.ibb.co/D8cbmT5/Screenshot-2023-03-10-at-1-22-15-PM.png)
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-**Home Page:** View group orders requiring your attention, group orders you manage, and items you are ordering on this page.
-\_\_
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-![screenshot of item detailed view](https://i.ibb.co/y84B0kG/Screenshot-2023-03-10-at-1-22-49-PM.png)
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-**Item Modal:** View details about the items you are ordering by clicking on their image in the grid.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-\_\_
+## Learn More
 
-![screeshot of orders page](https://i.ibb.co/N194F79/Screenshot-2023-03-10-at-1-48-17-PM.png)
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-**Orders Page:** View orders you are participating in and see what you and other people are ordering. You can also view your subtotal for each order.  
-\_\_
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-![screenshot of new order page](https://i.ibb.co/vjfz5Cj/Screenshot-2023-03-10-at-1-59-54-PM.png)
+### Code Splitting
 
-**New Order Page:** Allows you to create a new group order and invite your first participant.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-\_\_
+### Analyzing the Bundle Size
 
-![App Screenshot](https://i.ibb.co/yXGD7qm/Screenshot-2023-03-10-at-2-24-15-PM.png)
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-**Add Item Page:** Allows you to add items to any order you are participating in. Builds a preview while you are filling out the form on larger screen sizes.
+### Making a Progressive Web App
 
-## Visit Boxpals
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-You can visit Boxpals by going to [https://boxpals.vercel.app/login](https://boxpals.vercel.app/login).  
-View sample data by logging in with:
+### Advanced Configuration
 
-```
-username: AmeMichelle
-password: bananas
-```
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-Alternatively, you can sign up by going to [https://boxpals.vercel.app/signup](https://boxpals.vercel.app/signup) and creating an account with your information.
+### Deployment
 
-## Lessons Learned & Next Steps
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-**Lessons**
+### `npm run build` fails to minify
 
-This project was an opportunity to learn more about some of the concepts that were not used in previous class projects. Specifically I learned a lot about authentication, working with databases, and deployment. Boxpals is my first full-stack project, so I got to learn about things like:
-
-- what should be managed client-side versus server-side
-- useful libraries to install
-- how to connect a client to a server and a server to a database (and a lot of knex/SQL commands)
-- and a lot more!
-
-**Next Steps**
-
-Balancing full time work, extra-curriculars, class, and life with a hard deadline means there are a lot of things left to be implemented in future versions of Boxpals. Some of these things include:
-
-- Making this a full CRUD (Create, Read, Update, Delete) application by adding editing capabilities to both orders and items, as well as adding delete functionality.
-- Setting up form validation across the board, so that only data inputted correctly gets added to the back-end.
-- Implementing more robust features on the payment side of things, so that it is easier for group order hosts to complete orders.
-- Adding a place to see what discounts are being worked towards in a given group order.
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
