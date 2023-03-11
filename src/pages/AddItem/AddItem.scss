@@ -105,7 +105,7 @@
 .preview {
   display: none;
 
-  @include breakpoint-min-size($tablet) {
+  @include breakpoint-min-size($desktop) {
     border: 2px solid #dacdbd;
     border-radius: 0.5rem;
     background-color: white;
@@ -126,12 +126,20 @@
     font-family: "Unbounded";
     font-size: 2rem;
     padding-left: 2rem;
+    font-size: 1.5rem;
+    padding: 0rem 2rem;
+    @include removeMarginBlock;
   }
 
   &__desc {
     padding-left: 2rem;
     font-family: "Uncut Sans";
     font-size: 1rem;
+    padding-bottom: 1rem;
+
+    &.no-padding {
+      padding-left: 0rem;
+    }
   }
 
   &__accent {

@@ -18,10 +18,13 @@ function AddItem() {
   const navigate = useNavigate();
 
   const showNotif = () => {
-    toast.success("Success Notification !", {
-      position: toast.POSITION.TOP_RIGHT,
-      autoClose: 2000,
-    });
+    toast.success(
+      "Your item was successfully added! Navigating to your order...",
+      {
+        position: toast.POSITION.TOP_RIGHT,
+        autoClose: 2000,
+      }
+    );
   };
 
   let [participants, setParticipants] = useState([]);
@@ -46,11 +49,13 @@ function AddItem() {
 
       let optionObjects = [];
       participating.map((order) => {
-        let option = {
-          label: order.name,
-          value: order.id,
-        };
-        optionObjects.push(option);
+        if (order.status != "completed") {
+          let option = {
+            label: order.name,
+            value: order.id,
+          };
+          optionObjects.push(option);
+        }
       });
 
       setOptions(optionObjects);
@@ -184,14 +189,20 @@ function AddItem() {
         </div>
 
         <div className="preview">
-          <div className="img-preview">
-            <img src={url} className="page__img" />
-          </div>
+          {url && (
+            <div className="img-preview">
+              <img
+                src={url}
+                className="page__img"
+                alt="visual of item being added to a group order"
+              />
+            </div>
+          )}
           <p className="preview__name">{name}</p>
           <div className="preview__content">
             {price && <p className="preview__desc">${price}</p>}
             {specs && (
-              <p className="preview__desc">
+              <p className="preview__desc no-padding">
                 <span className="preview__accent">&#10042;</span>
                 {specs}
               </p>
@@ -199,6 +210,7 @@ function AddItem() {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </>
   );
 }
