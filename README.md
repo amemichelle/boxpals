@@ -64,7 +64,7 @@ respective owners.
 
 ## Visit Boxpals
 
-You can visit Boxpals by going to [https://boxpals.vercel.app/login](https://boxpals.vercel.app/login).  
+~~You can visit Boxpals by going to [https://boxpals.vercel.app/login](https://boxpals.vercel.app/login).  
 View sample data by logging in with:
 
 ```
@@ -72,7 +72,13 @@ username: AmeMichelle
 password: bananas
 ```
 
-Alternatively, you can sign up by going to [https://boxpals.vercel.app/signup](https://boxpals.vercel.app/signup) and creating an account with your information.
+Alternatively, you can sign up by going to [https://boxpals.vercel.app/signup](https://boxpals.vercel.app/signup) and creating an account with your information.~~
+
+```
+Update:  Deploy seems to have crashed for reasons I have not yet had time to uncover.  Visit Boxpals by downloading both the client and server repositories, installing the necessary dependencies (listed in the tech stack section), and running both programs via CLI. 
+
+```
+
 
 ## Lessons Learned & Next Steps
 
